@@ -1,0 +1,356 @@
+Additional TODOs
+
+These are classes and methods that do not appear inside the already existing headers as TODO items.
+This in most cases means that the base classes are not exposed to P/Invoke yet.
+
+- IAnimatedMeshMD3
+    virtual void setInterpolationShift ( u32 shift, u32 loopMode ) = 0;
+    virtual SMD3QuaternionTagList *getTagList(s32 frame, s32 detailLevel, s32 startFrameLoop, s32 endFrameLoop) = 0;
+    virtual SMD3Mesh * getOriginalMesh () = 0;
+- IShadowVolumeSceneNode
+- IBillboardTextSceneNode
+    virtual void setSize(const core::dimension2d<f32>& size) = 0;
+    virtual const core::dimension2d<f32>& getSize() const = 0;
+    virtual void setColor(const video::SColor & overallColor) = 0;
+    virtual void setColor(const video::SColor & topColor, const video::SColor & bottomColor) = 0;
+    virtual void getColor(video::SColor & topColor, video::SColor & bottomColor) const = 0;
+    virtual void setText(const wchar_t* text) = 0;
+    virtual void setTextColor(video::SColor color) = 0;
+- IDummyTransformationSceneNode
+- IDynamicMeshBuffer
+    virtual IVertexBuffer &getVertexBuffer() const =0;
+    virtual IIndexBuffer &getIndexBuffer() const =0;
+    virtual void setVertexBuffer(IVertexBuffer *vertexBuffer) =0;
+    virtual void setIndexBuffer(IIndexBuffer *indexBuffer) =0;
+    virtual video::SMaterial& getMaterial() =0;
+    virtual const video::SMaterial& getMaterial() const =0;
+    virtual const core::aabbox3df& getBoundingBox() const =0;
+    virtual void setBoundingBox(const core::aabbox3df& box) =0;
+    virtual void recalculateBoundingBox() =0;
+    virtual void append(const void* const vertices, u32 numVertices, const u16* const indices, u32 numIndices)
+    virtual void append(const IMeshBuffer* const other)
+    virtual E_HARDWARE_MAPPING getHardwareMappingHint_Vertex() const
+    virtual E_HARDWARE_MAPPING getHardwareMappingHint_Index() const
+    virtual void setHardwareMappingHint( E_HARDWARE_MAPPING NewMappingHint, E_BUFFER_TYPE Buffer=EBT_VERTEX_AND_INDEX )
+    virtual void setDirty(E_BUFFER_TYPE Buffer=EBT_VERTEX_AND_INDEX)
+    virtual u32 getChangedID_Vertex() const
+    virtual u32 getChangedID_Index() const
+    virtual video::E_VERTEX_TYPE getVertexType() const
+    virtual const void* getVertices() const
+    virtual void* getVertices()
+    virtual u32 getVertexCount() const
+    virtual video::E_INDEX_TYPE getIndexType() const
+    virtual const u16* getIndices() const
+    virtual u16* getIndices()
+    virtual u32 getIndexCount() const
+    virtual const core::vector3df& getPosition(u32 i) const
+    virtual core::vector3df& getPosition(u32 i)
+    virtual const core::vector2df& getTCoords(u32 i) const
+    virtual core::vector2df& getTCoords(u32 i)
+    virtual const core::vector3df& getNormal(u32 i) const
+    virtual core::vector3df& getNormal(u32 i)
+- IFileArchive
+    virtual IReadFile* createAndOpenFile(const path& filename) =0;
+    virtual IReadFile* createAndOpenFile(u32 index) =0;
+    virtual const IFileList* getFileList() const =0;
+    virtual E_FILE_ARCHIVE_TYPE getType() const { return EFAT_UNKNOWN; }
+- IArchiveLoader
+    virtual bool isALoadableFileFormat(const path& filename) const =0;
+    virtual bool isALoadableFileFormat(io::IReadFile* file) const =0;
+    virtual bool isALoadableFileFormat(E_FILE_ARCHIVE_TYPE fileType) const =0;
+    virtual IFileArchive* createArchive(const path& filename, bool ignoreCase, bool ignorePaths) const =0;
+    virtual IFileArchive* createArchive(io::IReadFile* file, bool ignoreCase, bool ignorePaths) const =0;
+- IGeometryCreator
+    virtual IMesh* createCubeMesh(const core::vector3df& size=core::vector3df(5.f,5.f,5.f)) const =0;
+    virtual IMesh* createHillPlaneMesh(const core::dimension2d<f32>& tileSize, const core::dimension2d<u32>& tileCount, video::SMaterial* material, f32 hillHeight, const core::dimension2d<f32>& countHills, const core::dimension2d<f32>& textureRepeatCount) const =0;
+    virtual IMesh* createTerrainMesh(video::IImage* texture, video::IImage* heightmap, const core::dimension2d<f32>& stretchSize, f32 maxHeight, video::IVideoDriver* driver, const core::dimension2d<u32>& defaultVertexBlockSize, bool debugBorders=false) const =0;
+    virtual IMesh* createArrowMesh(const u32 tesselationCylinder = 4, const u32 tesselationCone = 8, const f32 height = 1.f, const f32 cylinderHeight = 0.6f, const f32 widthCylinder = 0.05f, const f32 widthCone = 0.3f, const video::SColor colorCylinder = 0xFFFFFFFF, const video::SColor colorCone = 0xFFFFFFFF) const =0;
+    virtual IMesh* createSphereMesh(f32 radius = 5.f, u32 polyCountX = 16, u32 polyCountY = 16) const =0;
+    virtual IMesh* createCylinderMesh(f32 radius, f32 length, u32 tesselation, const video::SColor& color=video::SColor(0xffffffff), bool closeTop=true, f32 oblique=0.f) const =0;
+    virtual IMesh* createConeMesh(f32 radius, f32 length, u32 tesselation, const video::SColor& colorTop=video::SColor(0xffffffff), const video::SColor& colorBottom=video::SColor(0xffffffff), f32 oblique=0.f) const =0;
+    virtual IMesh* createVolumeLightMesh(const u32 subdivideU=32, const u32 subdivideV=32, const video::SColor footColor = 0xffffffff, const video::SColor tailColor = 0xffffffff, const f32 lpDistance = 8.f, const core::vector3df& lightDim = core::vector3df(1.f,1.2f,1.f)) const =0;
+- IGUIEnvironment
+    virtual void drawAll() = 0;
+    virtual bool setFocus(IGUIElement* element) = 0;
+    virtual IGUIElement* getFocus() const = 0;
+    virtual bool removeFocus(IGUIElement* element) = 0;
+    virtual bool hasFocus(IGUIElement* element) const = 0;
+    virtual video::IVideoDriver* getVideoDriver() const = 0;
+    virtual io::IFileSystem* getFileSystem() const = 0;
+    virtual IOSOperator* getOSOperator() const = 0;
+    virtual void clear() = 0;
+    virtual bool postEventFromUser(const SEvent& event) = 0;
+    virtual void setUserEventReceiver(IEventReceiver* evr) = 0;
+    virtual IGUISkin* getSkin() const = 0;
+    virtual void setSkin(IGUISkin* skin) = 0;
+    virtual IGUISkin* createSkin(EGUI_SKIN_TYPE type) = 0;
+    virtual IGUIImageList* createImageList( video::ITexture* texture, core::dimension2d<s32>	imageSize, bool useAlphaChannel ) = 0;
+    virtual IGUIFont* getFont(const io::path& filename) = 0;
+    virtual IGUIFont* getBuiltInFont() const = 0;
+    virtual IGUISpriteBank* getSpriteBank(const io::path& filename) = 0;
+    virtual IGUISpriteBank* addEmptySpriteBank(const io::path& name) = 0;
+    virtual IGUIElement* getRootGUIElement() = 0;
+    virtual IGUIButton* addButton(const core::rect<s32>& rectangle, IGUIElement* parent=0, s32 id=-1, const wchar_t* text=0, const wchar_t* tooltiptext = 0) = 0;
+    virtual IGUIWindow* addWindow(const core::rect<s32>& rectangle, bool modal = false, const wchar_t* text=0, IGUIElement* parent=0, s32 id=-1) = 0;
+    virtual IGUIElement* addModalScreen(IGUIElement* parent) = 0;
+    virtual IGUIWindow* addMessageBox(const wchar_t* caption, const wchar_t* text=0, bool modal = true, s32 flags = EMBF_OK, IGUIElement* parent=0, s32 id=-1) = 0;
+    virtual IGUIScrollBar* addScrollBar(bool horizontal, const core::rect<s32>& rectangle, IGUIElement* parent=0, s32 id=-1) = 0;
+    virtual IGUIImage* addImage(video::ITexture* image, core::position2d<s32> pos, bool useAlphaChannel=true, IGUIElement* parent=0, s32 id=-1, const wchar_t* text=0) = 0;
+    virtual IGUIImage* addImage(const core::rect<s32>& rectangle, IGUIElement* parent=0, s32 id=-1, const wchar_t* text=0) = 0;
+    virtual IGUICheckBox* addCheckBox(bool checked, const core::rect<s32>& rectangle, IGUIElement* parent=0, s32 id=-1, const wchar_t* text=0) = 0;
+    virtual IGUIListBox* addListBox(const core::rect<s32>& rectangle, IGUIElement* parent=0, s32 id=-1, bool drawBackground=false) = 0;
+    virtual IGUITreeView* addTreeView(const core::rect<s32>& rectangle, IGUIElement* parent=0, s32 id=-1, bool drawBackground=false, bool scrollBarVertical = true, bool scrollBarHorizontal = false) = 0;
+    virtual IGUIMeshViewer* addMeshViewer(const core::rect<s32>& rectangle, IGUIElement* parent=0, s32 id=-1, const wchar_t* text=0) = 0;
+    virtual IGUIFileOpenDialog* addFileOpenDialog(const wchar_t* title = 0, bool modal=true, IGUIElement* parent=0, s32 id=-1) = 0;
+    virtual IGUIColorSelectDialog* addColorSelectDialog(const wchar_t* title = 0, bool modal=true, IGUIElement* parent=0, s32 id=-1) = 0;
+    virtual IGUIStaticText* addStaticText(const wchar_t* text, const core::rect<s32>& rectangle, bool border=false, bool wordWrap=true, IGUIElement* parent=0, s32 id=-1, bool fillBackground = false) = 0;
+    virtual IGUIEditBox* addEditBox(const wchar_t* text, const core::rect<s32>& rectangle, bool border=true, IGUIElement* parent=0, s32 id=-1) = 0;
+    virtual IGUISpinBox* addSpinBox(const wchar_t* text, const core::rect<s32>& rectangle, bool border=true,IGUIElement* parent=0, s32 id=-1) = 0;
+    virtual IGUIInOutFader* addInOutFader(const core::rect<s32>* rectangle=0, IGUIElement* parent=0, s32 id=-1) = 0;
+    virtual IGUITabControl* addTabControl(const core::rect<s32>& rectangle, IGUIElement* parent=0, bool fillbackground=false, bool border=true, s32 id=-1) = 0;
+    virtual IGUITab* addTab(const core::rect<s32>& rectangle, IGUIElement* parent=0, s32 id=-1) = 0;
+    virtual IGUIContextMenu* addContextMenu(const core::rect<s32>& rectangle, IGUIElement* parent=0, s32 id=-1) = 0;
+    virtual IGUIContextMenu* addMenu(IGUIElement* parent=0, s32 id=-1) = 0;
+    virtual IGUIToolBar* addToolBar(IGUIElement* parent=0, s32 id=-1) = 0;
+    virtual IGUIComboBox* addComboBox(const core::rect<s32>& rectangle, IGUIElement* parent=0, s32 id=-1) = 0;
+    virtual IGUITable* addTable(const core::rect<s32>& rectangle, IGUIElement* parent=0, s32 id=-1, bool drawBackground=false) =0;
+    virtual IGUIElementFactory* getDefaultGUIElementFactory() const = 0;
+    virtual void registerGUIElementFactory(IGUIElementFactory* factoryToAdd) = 0;
+    virtual u32 getRegisteredGUIElementFactoryCount() const = 0;
+    virtual IGUIElementFactory* getGUIElementFactory(u32 index) const = 0;
+    virtual IGUIElement* addGUIElement(const c8* elementName, IGUIElement* parent=0) = 0;
+    virtual bool saveGUI(const io::path& filename, IGUIElement* start=0) = 0;
+    virtual bool saveGUI(io::IWriteFile* file, IGUIElement* start=0) = 0;
+    virtual bool loadGUI(const io::path& filename, IGUIElement* parent=0) = 0;
+    virtual bool loadGUI(io::IReadFile* file, IGUIElement* parent=0) = 0;
+    virtual void serializeAttributes(io::IAttributes* out, io::SAttributeReadWriteOptions* options=0) const =0;
+    virtual void deserializeAttributes(io::IAttributes* in, io::SAttributeReadWriteOptions* options=0)=0;
+    virtual void writeGUIElement(io::IXMLWriter* writer, IGUIElement* node) =0;
+    virtual void readGUIElement(io::IXMLReader* reader, IGUIElement* node) =0;
+- IGUISpriteBank
+    virtual core::array< core::rect<s32> >& getPositions() = 0;
+    virtual core::array< SGUISprite >& getSprites() = 0;
+    virtual u32 getTextureCount() const = 0;
+    virtual video::ITexture* getTexture(u32 index) const = 0;
+    virtual void addTexture(video::ITexture* texture) = 0;
+    virtual void setTexture(u32 index, video::ITexture* texture) = 0;
+    virtual void draw2DSprite(u32 index, const core::position2di& pos, const core::rect<s32>* clip=0, const video::SColor& color= video::SColor(255,255,255,255), u32 starttime=0, u32 currenttime=0, bool loop=true, bool center=false) = 0;
+    virtual void draw2DSpriteBatch(const core::array<u32>& indices, const core::array<core::position2di>& pos, const core::rect<s32>* clip=0, const video::SColor& color= video::SColor(255,255,255,255), u32 starttime=0, u32 currenttime=0, bool loop=true, bool center=false) = 0;
+- IGUISkin
+    virtual video::SColor getColor(EGUI_DEFAULT_COLOR color) const = 0;
+    virtual void setColor(EGUI_DEFAULT_COLOR which, video::SColor newColor) = 0;
+    virtual s32 getSize(EGUI_DEFAULT_SIZE size) const = 0;
+    virtual const wchar_t* getDefaultText(EGUI_DEFAULT_TEXT text) const = 0;
+    virtual void setDefaultText(EGUI_DEFAULT_TEXT which, const wchar_t* newText) = 0;
+    virtual void setSize(EGUI_DEFAULT_SIZE which, s32 size) = 0;
+    virtual IGUIFont* getFont(EGUI_DEFAULT_FONT which=EGDF_DEFAULT) const = 0;
+    virtual void setFont(IGUIFont* font, EGUI_DEFAULT_FONT which=EGDF_DEFAULT) = 0;
+    virtual IGUISpriteBank* getSpriteBank() const = 0;
+    virtual void setSpriteBank(IGUISpriteBank* bank) = 0;
+    virtual u32 getIcon(EGUI_DEFAULT_ICON icon) const = 0;
+    virtual void setIcon(EGUI_DEFAULT_ICON icon, u32 index) = 0;
+    virtual void draw3DButtonPaneStandard(IGUIElement* element, const core::rect<s32>& rect, const core::rect<s32>* clip=0) = 0;
+    virtual void draw3DButtonPanePressed(IGUIElement* element, const core::rect<s32>& rect, const core::rect<s32>* clip=0) = 0;
+    virtual void draw3DSunkenPane(IGUIElement* element, video::SColor bgcolor, bool flat, bool fillBackGround, const core::rect<s32>& rect, const core::rect<s32>* clip=0) = 0;
+    virtual core::rect<s32> draw3DWindowBackground(IGUIElement* element, bool drawTitleBar, video::SColor titleBarColor, const core::rect<s32>& rect, const core::rect<s32>* clip=0) = 0;
+    virtual void draw3DMenuPane(IGUIElement* element, const core::rect<s32>& rect, const core::rect<s32>* clip=0) = 0;
+    virtual void draw3DToolBar(IGUIElement* element, const core::rect<s32>& rect, const core::rect<s32>* clip=0) = 0;
+    virtual void draw3DTabButton(IGUIElement* element, bool active, const core::rect<s32>& rect, const core::rect<s32>* clip=0, gui::EGUI_ALIGNMENT alignment=EGUIA_UPPERLEFT) = 0;
+    virtual void draw3DTabBody(IGUIElement* element, bool border, bool background, const core::rect<s32>& rect, const core::rect<s32>* clip=0, s32 tabHeight=-1, gui::EGUI_ALIGNMENT alignment=EGUIA_UPPERLEFT ) = 0;
+    virtual void drawIcon(IGUIElement* element, EGUI_DEFAULT_ICON icon, const core::position2di position, u32 starttime=0, u32 currenttime=0, bool loop=false, const core::rect<s32>* clip=0) = 0;
+    virtual void draw2DRectangle(IGUIElement* element, const video::SColor &color, const core::rect<s32>& pos, const core::rect<s32>* clip = 0) = 0;
+    virtual EGUI_SKIN_TYPE getType() const { return EGST_UNKNOWN; }
+- IGUITable
+    virtual void addColumn(const wchar_t* caption, s32 columnIndex=-1) = 0;
+    virtual void removeColumn(u32 columnIndex) = 0;
+    virtual s32 getColumnCount() const = 0;
+    virtual bool setActiveColumn(s32 idx, bool doOrder=false) = 0;
+    virtual s32 getActiveColumn() const = 0;
+    virtual EGUI_ORDERING_MODE getActiveColumnOrdering() const = 0;
+    virtual void setColumnWidth(u32 columnIndex, u32 width) = 0;
+    virtual void setResizableColumns(bool resizable) = 0;
+    virtual bool hasResizableColumns() const = 0;
+    virtual void setColumnOrdering(u32 columnIndex, EGUI_COLUMN_ORDERING mode) = 0;
+    virtual s32 getSelected() const = 0;
+    virtual void setSelected( s32 index ) = 0;
+    virtual s32 getRowCount() const = 0;
+    virtual u32 addRow(u32 rowIndex) = 0;
+    virtual void removeRow(u32 rowIndex) = 0;
+    virtual void clearRows() = 0;
+    virtual void swapRows(u32 rowIndexA, u32 rowIndexB) = 0;
+    virtual void orderRows(s32 columnIndex=-1, EGUI_ORDERING_MODE mode=EGOM_NONE) = 0;
+    virtual void setCellText(u32 rowIndex, u32 columnIndex, const core::stringw& text) = 0;
+    virtual void setCellText(u32 rowIndex, u32 columnIndex, const core::stringw& text, video::SColor color) = 0;
+    virtual void setCellData(u32 rowIndex, u32 columnIndex, void *data) = 0;
+    virtual void setCellColor(u32 rowIndex, u32 columnIndex, video::SColor color) = 0;
+    virtual const wchar_t* getCellText(u32 rowIndex, u32 columnIndex ) const = 0;
+    virtual void* getCellData(u32 rowIndex, u32 columnIndex ) const = 0;
+    virtual void clear() = 0;
+    virtual void setDrawFlags(s32 flags) = 0;
+    virtual s32 getDrawFlags() const = 0;
+- IGUITreeViewNode
+    virtual IGUITreeView* getOwner() const = 0;
+    virtual IGUITreeViewNode* getParent() const = 0;
+    virtual const wchar_t* getText() const = 0;
+    virtual void setText( const wchar_t* text ) = 0;
+    virtual const wchar_t* getIcon() const = 0;
+    virtual void setIcon( const wchar_t* icon ) = 0;
+    virtual u32 getImageIndex() const = 0;
+    virtual void setImageIndex( u32 imageIndex ) = 0;
+    virtual u32 getSelectedImageIndex() const = 0;
+    virtual void setSelectedImageIndex( u32 imageIndex ) = 0;
+    virtual void* getData() const = 0;
+    virtual void setData( void* data ) = 0;
+    virtual IReferenceCounted* getData2() const = 0;
+    virtual void setData2( IReferenceCounted* data ) = 0;
+    virtual u32 getChildCount() const = 0;
+    virtual void clearChilds() = 0;
+    virtual bool hasChilds() const = 0;
+    virtual IGUITreeViewNode* addChildBack(const wchar_t* text, const wchar_t* icon = 0, s32 imageIndex=-1, s32 selectedImageIndex=-1, void* data=0, IReferenceCounted* data2=0) =0;
+    virtual IGUITreeViewNode* addChildFront(const wchar_t* text, const wchar_t* icon = 0, s32 imageIndex=-1, s32 selectedImageIndex=-1, void* data=0, IReferenceCounted* data2=0 ) =0;
+    virtual IGUITreeViewNode* insertChildAfter(IGUITreeViewNode* other, const wchar_t* text, const wchar_t* icon = 0, s32 imageIndex=-1, s32 selectedImageIndex=-1, void* data=0, IReferenceCounted* data2=0) =0;
+    virtual IGUITreeViewNode* insertChildBefore(IGUITreeViewNode* other, const wchar_t* text, const wchar_t* icon = 0, s32 imageIndex=-1, s32 selectedImageIndex=-1, void* data=0, IReferenceCounted* data2=0) = 0;
+    virtual IGUITreeViewNode* getFirstChild() const = 0;
+    virtual IGUITreeViewNode* getLastChild() const = 0;
+    virtual IGUITreeViewNode* getPrevSibling() const = 0;
+    virtual IGUITreeViewNode* getNextSibling() const = 0;
+    virtual IGUITreeViewNode* getNextVisible() const = 0;
+    virtual bool deleteChild( IGUITreeViewNode* child ) = 0;
+    virtual bool moveChildUp( IGUITreeViewNode* child ) = 0;
+    virtual bool moveChildDown( IGUITreeViewNode* child ) = 0;
+    virtual bool getExpanded() const = 0;
+    virtual void setExpanded( bool expanded ) = 0;
+    virtual bool getSelected() const = 0;
+    virtual void setSelected( bool selected ) = 0;
+    virtual bool isRoot() const = 0;
+    virtual s32 getLevel() const = 0;
+    virtual bool isVisible() const = 0;
+- IGUITreeView
+    IGUITreeView(IGUIEnvironment* environment, IGUIElement* parent, s32 id, core::rect<s32> rectangle)
+    virtual IGUITreeViewNode* getRoot() const = 0;
+    virtual IGUITreeViewNode* getSelected() const = 0;
+    virtual bool getLinesVisible() const = 0;
+    virtual void setLinesVisible( bool visible ) = 0;
+    virtual void setIconFont( IGUIFont* font ) = 0;
+    virtual void setImageList( IGUIImageList* imageList ) = 0;
+    virtual IGUIImageList* getImageList() const = 0;
+    virtual void setImageLeftOfIcon( bool bLeftOf ) = 0;
+    virtual bool getImageLeftOfIcon() const = 0;
+    virtual IGUITreeViewNode* getLastEventNode() const = 0;
+- IImage
+    virtual void* lock() = 0;
+    virtual void unlock() = 0;
+    virtual const core::dimension2d<u32>& getDimension() const = 0;
+    virtual u32 getBitsPerPixel() const = 0;
+    virtual u32 getBytesPerPixel() const = 0;
+    virtual u32 getImageDataSizeInBytes() const = 0;
+    virtual u32 getImageDataSizeInPixels() const = 0;
+    virtual SColor getPixel(u32 x, u32 y) const = 0;
+    virtual void setPixel(u32 x, u32 y, const SColor &color, bool blend = false ) = 0;
+    virtual ECOLOR_FORMAT getColorFormat() const = 0;
+    virtual u32 getRedMask() const = 0;
+    virtual u32 getGreenMask() const = 0;
+    virtual u32 getBlueMask() const = 0;
+    virtual u32 getAlphaMask() const = 0;
+    virtual u32 getPitch() const =0;
+    virtual void copyToScaling(void* target, u32 width, u32 height, ECOLOR_FORMAT format=ECF_A8R8G8B8, u32 pitch=0) =0;
+    virtual void copyToScaling(IImage* target) =0;
+    virtual void copyTo(IImage* target, const core::position2d<s32>& pos=core::position2d<s32>(0,0)) =0;
+    virtual void copyTo(IImage* target, const core::position2d<s32>& pos, const core::rect<s32>& sourceRect, const core::rect<s32>* clipRect=0) =0;
+    virtual void copyToWithAlpha(IImage* target, const core::position2d<s32>& pos, const core::rect<s32>& sourceRect, const SColor &color, const core::rect<s32>* clipRect = 0) =0;
+    virtual void copyToScalingBoxFilter(IImage* target, s32 bias = 0, bool blend = false) = 0;
+    virtual void fill(const SColor &color) =0;
+    static u32 getBitsPerPixelFromFormat(const ECOLOR_FORMAT format)
+    static bool isRenderTargetOnlyFormat(const ECOLOR_FORMAT format)
+- IImageLoader
+    virtual bool isALoadableFileExtension(const io::path& filename) const = 0;
+    virtual bool isALoadableFileFormat(io::IReadFile* file) const = 0;
+    virtual IImage* loadImage(io::IReadFile* file) const = 0;
+- IImageWriter
+    virtual bool isAWriteableFileExtension(const io::path& filename) const = 0;
+    virtual bool writeImage(io::IWriteFile *file, IImage *image, u32 param = 0) const = 0;
+- IIndexBuffer
+    virtual void* getData() =0;
+    virtual video::E_INDEX_TYPE getType() const =0;
+    virtual void setType(video::E_INDEX_TYPE IndexType) =0;
+    virtual u32 stride() const =0;
+    virtual u32 size() const =0;
+    virtual void push_back (const u32 &element) =0;
+    virtual u32 operator [](u32 index) const =0;
+    virtual u32 getLast() =0;
+    virtual void setValue(u32 index, u32 value) =0;
+    virtual void set_used(u32 usedNow) =0;
+    virtual void reallocate(u32 new_size) =0;
+    virtual u32 allocated_size() const=0;
+    virtual void* pointer() =0;
+    virtual E_HARDWARE_MAPPING getHardwareMappingHint() const =0;
+    virtual void setHardwareMappingHint( E_HARDWARE_MAPPING NewMappingHint ) =0;
+    virtual void setDirty() = 0;
+    virtual u32 getChangedID() const = 0;
+- IMaterialRendererServices
+    virtual void setBasicRenderStates(const SMaterial& material, const SMaterial& lastMaterial, bool resetAllRenderstates) = 0;
+    virtual bool setVertexShaderConstant(const c8* name, const f32* floats, int count) = 0;
+    virtual void setVertexShaderConstant(const f32* data, s32 startRegister, s32 constantAmount=1) = 0;
+    virtual bool setPixelShaderConstant(const c8* name, const f32* floats, int count) = 0;
+    virtual void setPixelShaderConstant(const f32* data, s32 startRegister, s32 constantAmount=1) = 0;
+    virtual IVideoDriver* getVideoDriver() = 0;
+- IMeshLoader
+    virtual bool isALoadableFileExtension(const io::path& filename) const = 0;
+    virtual IAnimatedMesh* createMesh(io::IReadFile* file) = 0;
+- IOSOperator
+    virtual const wchar_t* getOperationSystemVersion() const = 0;
+    virtual void copyToClipboard(const c8* text) const = 0;
+    virtual const c8* getTextFromClipboard() const = 0;
+    virtual bool getProcessorSpeedMHz(u32* MHz) const = 0;
+    virtual bool getSystemMemory(u32* Total, u32* Avail) const = 0;
+- Particle System overhaul
+- IReadFile
+    virtual s32 read(void* buffer, u32 sizeToRead) = 0;
+    virtual bool seek(long finalPos, bool relativeMovement = false) = 0;
+    virtual long getSize() const = 0;
+    virtual long getPos() const = 0;
+    virtual const io::path& getFileName() const = 0;
+- ISceneNodeAnimator
+    virtual void animateNode(ISceneNode* node, u32 timeMs) =0;
+    virtual ISceneNodeAnimator* createClone(ISceneNode* node, ISceneManager* newManager=0) =0;
+    virtual bool isEventReceiverEnabled() const
+    virtual bool OnEvent(const SEvent& event)
+    virtual ESCENE_NODE_ANIMATOR_TYPE getType() const
+    virtual bool hasFinished(void) const
+- IShadowVolumeSceneNode
+    virtual void setShadowMesh(const IMesh* mesh) = 0;
+    virtual void updateShadowVolumes() = 0;
+-IVertexBuffer
+    virtual void* getData() =0;
+    virtual video::E_VERTEX_TYPE getType() const =0;
+    virtual void setType(video::E_VERTEX_TYPE vertexType) =0;
+    virtual u32 stride() const =0;
+    virtual u32 size() const =0;
+    virtual void push_back(const video::S3DVertex &element) =0;
+    virtual video::S3DVertex& operator [](const u32 index) const =0;
+    virtual video::S3DVertex& getLast() =0;
+    virtual void set_used(u32 usedNow) =0;
+    virtual void reallocate(u32 new_size) =0;
+    virtual u32 allocated_size() const =0;
+    virtual video::S3DVertex* pointer() =0;
+    virtual E_HARDWARE_MAPPING getHardwareMappingHint() const =0;
+    virtual void setHardwareMappingHint( E_HARDWARE_MAPPING NewMappingHint ) =0;
+    virtual void setDirty() =0;
+    virtual u32 getChangedID() const = 0;
+- IVolumeLightSceneNode
+    virtual ESCENE_NODE_TYPE getType() const { return ESNT_VOLUME_LIGHT; }
+    virtual void setSubDivideU(const u32 inU) =0;
+    virtual void setSubDivideV(const u32 inV) =0;
+    virtual u32 getSubDivideU() const =0;
+    virtual u32 getSubDivideV() const =0;
+    virtual void setFootColor(const video::SColor inColour) =0;
+    virtual void setTailColor(const video::SColor inColour) =0;
+    virtual video::SColor getFootColor() const =0;
+    virtual video::SColor getTailColor() const =0;
+
+Structs and enums:
+- SParticle
+- SSkinMeshBuffer
+- SGUISprite
+- SOverrideMaterial
+- SLight 

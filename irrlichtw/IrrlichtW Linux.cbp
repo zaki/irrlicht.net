@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="IrrlichtW" />
+		<Option pch_mode="0" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Release">
+				<Option output="../bin/Release/libIrrlichtW.so" prefix_auto="0" extension_auto="0" />
+				<Option working_dir="../bin/Release" />
+				<Option object_output="obj/Release/" />
+				<Option type="3" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-w" />
+					<Add option="-s" />
+				</Compiler>
+			</Target>
+		</Build>
+		<VirtualTargets>
+			<Add alias="All" targets="Release;" />
+		</VirtualTargets>
+		<Compiler>
+			<Add option="-Os" />
+			<Add option="-Wall" />
+			<Add directory="../Irrlicht SDK/include" />
+			<Add directory="/usr/include/freetype2" />
+		</Compiler>
+		<Linker>
+			<Add option="-s" />
+			<Add library="GL" />
+			<Add library="GLU" />
+			<Add library="Xxf86vm" />
+			<Add library="../Irrlicht SDK/lib/Linux/libIrrlicht.a" />
+			<Add library="freetype" />
+			<Add directory="../Irrlicht SDK/lib/Linux" />
+			<Add directory="/usr/lib" />
+		</Linker>
+		<Unit filename="animatedhmesh.h" />
+		<Unit filename="animatedmesh.cpp" />
+		<Unit filename="camera.cpp" />
+		<Unit filename="camera.h" />
+		<Unit filename="conversion.cpp" />
+		<Unit filename="conversion.h" />
+		<Unit filename="customfont.cpp" />
+		<Unit filename="customfont.h" />
+		<Unit filename="customscenenodes.cpp" />
+		<Unit filename="customscenenodes.h" />
+		<Unit filename="device.cpp" />
+		<Unit filename="device.h" />
+		<Unit filename="event.cpp" />
+		<Unit filename="event.h" />
+		<Unit filename="gpu.cpp" />
+		<Unit filename="gpu.h" />
+		<Unit filename="guielem.cpp" />
+		<Unit filename="guielem.h" />
+		<Unit filename="guielem2.cpp" />
+		<Unit filename="guielem2.h" />
+		<Unit filename="guienv.cpp" />
+		<Unit filename="guienv.h" />
+		<Unit filename="main.h" />
+		<Unit filename="material.cpp" />
+		<Unit filename="material.h" />
+		<Unit filename="mesh.cpp" />
+		<Unit filename="mesh.h" />
+		<Unit filename="meshmanipulator.cpp" />
+		<Unit filename="meshmanipulator.h" />
+		<Unit filename="particlescenenode.cpp" />
+		<Unit filename="particlescenenode.h" />
+		<Unit filename="scenemanager.cpp" />
+		<Unit filename="scenemanager.h" />
+		<Unit filename="scenenode.cpp" />
+		<Unit filename="scenenode.h" />
+		<Unit filename="texture.cpp" />
+		<Unit filename="texture.h" />
+		<Unit filename="vertices.cpp" />
+		<Unit filename="vertices.h" />
+		<Unit filename="videodriver.cpp" />
+		<Unit filename="videodriver.h" />
+		<Extensions>
+			<code_completion>
+				<search_path add="../Irrlicht SDK/include" />
+			</code_completion>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
