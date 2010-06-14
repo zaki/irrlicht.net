@@ -104,51 +104,6 @@ namespace IrrlichtNETCP
             }
         }
 
-        public static void DumpElements(string filename)
-        {
-            Dictionary<IntPtr, int> list = new Dictionary<IntPtr, int>();
-
-            IDictionaryEnumerator en = Elements.GetEnumerator();
-
-
-            while (en.MoveNext())
-            {
-                if (!list.ContainsKey((IntPtr)en.Key))
-                {
-                    list.Add((IntPtr)en.Key, 1);
-                }
-                else
-                {
-                    list[(IntPtr)en.Key]++;
-                }
-            }
-            en = list.GetEnumerator();
-
-            long memused = 0;
-
-            memused = GC.GetTotalMemory(true);
-
-            System.IO.StreamWriter sw = new System.IO.StreamWriter(filename, false);
-
-            sw.WriteLine("Begin dump of the Elements:\n");
-            while (en.MoveNext())
-            {
-                sw.Write("\t" + en.Key + "\tdup\t" + en.Value + "\ttype:\t" + Elements[(IntPtr)en.Key].ToString());
-                try
-                {
-                    sw.Write(" RefCnt=" + Elements[(IntPtr)en.Key].GetReferenceCount().ToString() + "\n");
-                }
-                catch (Exception)
-                {
-                    sw.Write(" RefCount=invalid\n");
-                }
-            }
-            sw.WriteLine("=========================================================");
-            sw.WriteLine("\tTotal memory used: " + memused + " Kb");
-            sw.Close();
-        }
-
-
         #region .NET Wrapper Native Code
         protected IntPtr _raw = IntPtr.Zero;
         public IntPtr Raw { get { return _raw; } }

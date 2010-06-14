@@ -9,25 +9,6 @@ namespace IrrlichtNETCP
             : base(raw)
         {
         }
-
-        public override void Dispose()
-        {
-            if (Elements.ContainsKey(Raw))
-                Elements.Remove(Raw);
-            if (_raw != IntPtr.Zero)
-                try { Pointer_SafeRelease(_raw); }
-                catch { };
-        }
-
-        public override void Drop()
-        {
-            if (_raw != IntPtr.Zero)
-                try { Pointer_SafeRelease(_raw); }
-                catch { };
-        }
-
-        [System.Runtime.InteropServices.DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
-        static extern void Pointer_SafeRelease(IntPtr pointer);
     }
 }
 
