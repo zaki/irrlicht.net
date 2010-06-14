@@ -56,6 +56,30 @@
         <Match pattern="*.cs" recurse="true"/>
       </Files>
     </Project>
+	<Project name="Movement" path="Movement" type="Exe">
+	  <Configuration name="Debug">
+        <Options>
+          <OutputPath>../../bin/Debug/</OutputPath>
+        </Options>
+      </Configuration>
+      <Configuration name="Release">
+        <Options>
+          <OutputPath>../../bin/Release/</OutputPath>
+        </Options>
+      </Configuration>
+
+      <ReferencePath>../../bin/Release/</ReferencePath>
+      <Reference name="System" localCopy="false"/>
+      <Reference name="System.Data" localCopy="false"/>
+      <Reference name="System.Drawing" localCopy="false"/>
+      <Reference name="System.Windows.Forms" localCopy="false"/>
+      <Reference name="System.Xml"/>
+	  <Reference name="Irrlicht.net.dll"/>
+	  <Reference name="Irrlicht.extensions.dll"/>
+      <Files>
+        <Match pattern="*.cs" recurse="true"/>
+      </Files>
+    </Project>
   </Solution>
 </Prebuild>
 
