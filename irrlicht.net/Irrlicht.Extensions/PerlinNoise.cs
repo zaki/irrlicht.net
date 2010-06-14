@@ -4,7 +4,7 @@
 
 using System;
 
-namespace IrrlichtNETCP.Extensions.Other
+namespace IrrlichtNET.Extensions.Other
 {
     public static class PerlinSimplexNoise
     {

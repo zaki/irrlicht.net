@@ -3,7 +3,7 @@ using System.Text;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
     public partial class GUIEnvironment : NativeElement
     {

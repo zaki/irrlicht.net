@@ -2,7 +2,7 @@ using System;
 using System.Security;
 using System.Runtime.InteropServices;
 
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
     public class ParticleEmitter : NativeElement
     {
@@ -51,7 +51,7 @@ namespace IrrlichtNETCP
     }
 }
 
-namespace IrrlichtNETCP.Inheritable
+namespace IrrlichtNET.Inheritable
 {
     public interface IParticleEmitter
     {

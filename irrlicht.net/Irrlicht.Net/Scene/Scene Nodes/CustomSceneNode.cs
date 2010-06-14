@@ -3,7 +3,7 @@ using System.Text;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace IrrlichtNETCP.Inheritable
+namespace IrrlichtNET.Inheritable
 {
     //I know this is not an interface but for naming purpose, I must name it ISceneNode...
     public abstract class ISceneNode : SceneNode

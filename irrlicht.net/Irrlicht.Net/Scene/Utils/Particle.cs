@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Security;
 
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
     public class Particle : NativeElement
     {

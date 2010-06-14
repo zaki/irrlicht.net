@@ -1,7 +1,7 @@
-using IrrlichtNETCP;
+using IrrlichtNET;
 using System;
 
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
     public struct Box3D
     {

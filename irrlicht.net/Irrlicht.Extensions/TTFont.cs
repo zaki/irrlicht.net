@@ -3,7 +3,7 @@
 using System;
 using System.Runtime.InteropServices;
 
-namespace IrrlichtNETCP.Extensions
+namespace IrrlichtNET.Extensions
 {
 
     public class TTFace : GUIFont

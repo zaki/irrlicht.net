@@ -1,7 +1,7 @@
 using System;
 using System.Text;
 
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
     public struct Triangle3D
     {

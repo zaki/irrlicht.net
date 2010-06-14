@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 
 
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
     public delegate void DropCallbackDelegate(IntPtr obj);
 

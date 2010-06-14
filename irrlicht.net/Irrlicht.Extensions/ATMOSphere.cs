@@ -9,10 +9,10 @@
 
 
 using System;
-using IrrlichtNETCP;
-using IrrlichtNETCP.Inheritable;
+using IrrlichtNET;
+using IrrlichtNET.Inheritable;
 
-namespace IrrlichtNETCP.Extensions
+namespace IrrlichtNET.Extensions
 {
 
 

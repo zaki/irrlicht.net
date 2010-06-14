@@ -1,9 +1,9 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Security;
-using IrrlichtNETCP;
+using IrrlichtNET;
 
-namespace IrrlichtNETCP.Inheritable
+namespace IrrlichtNET.Inheritable
 {
 
 

@@ -1,8 +1,8 @@
 using System;
-using IrrlichtNETCP;
-using IrrlichtNETCP.Inheritable;
+using IrrlichtNET;
+using IrrlichtNET.Inheritable;
 //Made by DeusXL, A lot of thanks to peter for giving the HLSL translation on the forum !
-namespace IrrlichtNETCP.Extensions
+namespace IrrlichtNET.Extensions
 {
     public class WaterSceneNode : ISceneNode
     {

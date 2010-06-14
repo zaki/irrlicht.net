@@ -2,10 +2,10 @@
 //http://irrlichtnetcp.sourceforge.net/phpBB2/viewtopic.php?p=47
 using System;
 using System.Text;
-using IrrlichtNETCP;
-using IrrlichtNETCP.Inheritable;
+using IrrlichtNET;
+using IrrlichtNET.Inheritable;
 
-namespace IrrlichtNETCP.Extensions
+namespace IrrlichtNET.Extensions
 {
     internal class IrrQuad
     {

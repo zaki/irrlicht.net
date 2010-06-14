@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
 using System.Runtime.InteropServices;
-using IrrlichtNETCP.Inheritable;
+using IrrlichtNET.Inheritable;
 
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
     public class ParticleSystemSceneNode : SceneNode
     {

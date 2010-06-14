@@ -2,7 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
     public class CameraSceneNode : SceneNode
     {

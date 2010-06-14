@@ -5,7 +5,7 @@ using System.Text;
 using System.IO;
 using System.Security;
 
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
     /// <summary>
     /// Delegate called each time the engine wants to define a shader constant.

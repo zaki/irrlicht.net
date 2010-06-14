@@ -5,7 +5,7 @@ using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
     public class Texture : NativeElement
     {

@@ -2,7 +2,7 @@ using System;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
     public enum ViewFrustumPlanes { Far = 0, Near = 1, Left = 2, Right = 3, Bottom = 4, Top = 5, Count = 6 };
 

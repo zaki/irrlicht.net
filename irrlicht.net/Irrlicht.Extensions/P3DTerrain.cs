@@ -3,11 +3,11 @@
 */
 
 using System;
-using IrrlichtNETCP;
-using IrrlichtNETCP.Extensions.Other;
-using IrrlichtNETCP.Inheritable;
+using IrrlichtNET;
+using IrrlichtNET.Extensions.Other;
+using IrrlichtNET.Inheritable;
 
-namespace IrrlichtNETCP.Extensions
+namespace IrrlichtNET.Extensions
 {
 
     public class P3DSimplexNoiseTerrain : ISceneNode

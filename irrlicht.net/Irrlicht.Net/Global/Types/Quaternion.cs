@@ -1,7 +1,7 @@
 using System;
 
 
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
     public class Quaternion
     {

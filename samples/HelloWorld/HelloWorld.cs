@@ -2,8 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Xml;
-using IrrlichtNETCP;
-using IrrlichtNETCP.Extensions;
+using IrrlichtNET;
+using IrrlichtNET.Extensions;
 
 namespace HelloWorld
 {

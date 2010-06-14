@@ -1,9 +1,9 @@
 using System;
 using System.Runtime.InteropServices;
-using IrrlichtNETCP;
+using IrrlichtNET;
 using System.Security;
 
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
     public class Animator : NativeElement
     {

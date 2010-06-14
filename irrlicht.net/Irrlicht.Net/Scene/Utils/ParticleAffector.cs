@@ -1,7 +1,7 @@
 using System;
 using System.Security;
 
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
     public class ParticleAffector : NativeElement
     {
@@ -12,7 +12,7 @@ namespace IrrlichtNETCP
     }
 }
 
-namespace IrrlichtNETCP.Inheritable
+namespace IrrlichtNET.Inheritable
 {
     public interface IParticleAffector
     {

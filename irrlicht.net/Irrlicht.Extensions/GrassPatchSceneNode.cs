@@ -2,10 +2,10 @@ using System;
 using System.Text;
 using System.Collections;
 using System.IO;
-using IrrlichtNETCP;
-using IrrlichtNETCP.Inheritable;
+using IrrlichtNET;
+using IrrlichtNET.Inheritable;
 
-namespace IrrlichtNETCP.Extensions
+namespace IrrlichtNET.Extensions
 {
     public class GrassPatchSceneNode : ISceneNode
     {

@@ -1,6 +1,6 @@
 using System;
 
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
     public struct Plane3Df
     {

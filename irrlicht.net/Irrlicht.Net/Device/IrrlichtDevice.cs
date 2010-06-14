@@ -1,10 +1,10 @@
-using IrrlichtNETCP;
+using IrrlichtNET;
 using System;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
 using System.Security;
 
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
     public delegate bool OnEventDelegate(Event ev);
     public partial class IrrlichtDevice : NativeElement

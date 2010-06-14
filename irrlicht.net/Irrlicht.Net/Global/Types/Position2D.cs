@@ -1,6 +1,6 @@
 using System;
 using System.Drawing;
-namespace IrrlichtNETCP
+namespace IrrlichtNET
 {
 
     public struct Position2D
