@@ -9,6 +9,17 @@ Microsoft .NET Framework and Mono on Windows, Linux and MacOSX.
 In it's current form, Irrlicht.NET supports only Irrlicht 1.6, but one of the goals for this repository
 is to change that situation by enabling easier rebasing to other branches.
 
+## Getting the sources
+
+First, clone this repository from github:
+
+ git clone <repository address>
+
+In the cloned working copy, update Irrlicht from upstream by issuing:
+
+ git submodule init
+ git submodule update
+
 ## Compilation
 
 ### Windows - Visual Studio

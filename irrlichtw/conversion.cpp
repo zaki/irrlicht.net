@@ -43,28 +43,6 @@ void Pointer_SafeRelease(IntPtr pointer)
     }
 }
 
-void Pointer_SafeRelease_AEO(IntPtr pointer)
-{
-    irr::IReferenceCounted* tmpPtr = NULL;
-
-    if(pointer)
-    {
-        tmpPtr = (irr::IReferenceCounted *)(irr::io::IAttributeExchangingObject*)pointer;
-        tmpPtr->drop();
-    }
-}
-
-void Pointer_SafeRelease_TS(IntPtr pointer)
-{
-    irr::IReferenceCounted* tmpPtr = NULL;
-
-    if(pointer)
-    {
-        tmpPtr = (irr::IReferenceCounted *)(irr::scene::ITriangleSelector*)pointer;
-        tmpPtr->drop();
-    }
-}
-
 #ifdef _DEBUG
 static _CrtMemState memstate0,memstate1, memstateDiff;
 static _CrtMemState *pCurMemState=&memstate0, *pOldMemState=&memstate1;
@@ -202,7 +180,7 @@ void UM_DIM2DU(irr::core::dimension2d<unsigned int> base, M_DIM2DU t)
     t[1] = base.Height;
 }
 
-void UM_DIM2US(irr::core::dimension2d<uint> base, M_DIM2US t)
+void UM_DIM2US(irr::core::dimension2d<unsigned int> base, M_DIM2US t)
 {
     t[0] = base.Width;
     t[1] = base.Height;

@@ -87,12 +87,12 @@ namespace IrrlichtNETCP
                 {
                     // if _raw has become invalid, the vtable for the IReferenceCount* part of _raw will be garbage
                     // and this method call should throw an exception, thus skipping over the Pointer_SafeRelease
-                    int refCount = this.GetReferenceCount();
+                    //int refCount = this.GetReferenceCount();
 
                     // as an extra check, do a sanity check on refCount. This also ensures that the refCount
                     // variable is used so the above call to this.GetReferenceCount() will definitely get
                     // executed (and not optimized away)
-                    if (refCount > 0 && refCount < 999999)
+                    //if (refCount > 0 && refCount < 999999)
                     {
                         Pointer_SafeRelease(_raw);
                     }
@@ -157,9 +157,6 @@ namespace IrrlichtNETCP
 
         [System.Runtime.InteropServices.DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
         static extern void Pointer_SafeRelease(IntPtr pointer);
-
-        [System.Runtime.InteropServices.DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
-        static extern void Pointer_SafeRelease_AEO(IntPtr pointer);
 
         [System.Runtime.InteropServices.DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
         static extern int Pointer_GetReferenceCount(IntPtr pointer);

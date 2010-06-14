@@ -274,7 +274,7 @@ void MeshSceneNode_DropAllMeshBuffers(IntPtr meshnode)
     int mbcount = ((IMeshSceneNode*)meshnode)->getMesh()->getMeshBufferCount();
     for (int i=0;i<mbcount;i++)
     {
-        ((IMeshSceneNode*)meshnode)->getMesh()->getMeshBuffer((uint)mbcount)->drop();
+        ((IMeshSceneNode*)meshnode)->getMesh()->getMeshBuffer((unsigned int)mbcount)->drop();
     }
 }
 

@@ -23,7 +23,7 @@ namespace IrrlichtNETCP
             {
                 try
                 {
-                    Pointer_SafeRelease_TS(_raw);
+                    Pointer_SafeRelease(_raw);
                 }
                 catch (Exception)
                 {
@@ -33,7 +33,7 @@ namespace IrrlichtNETCP
         }
 
         [System.Runtime.InteropServices.DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
-        static extern void Pointer_SafeRelease_TS(IntPtr pointer);
+        static extern void Pointer_SafeRelease(IntPtr pointer);
     }
 
     public class MetaTriangleSelector : TriangleSelector

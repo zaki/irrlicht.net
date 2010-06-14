@@ -42,20 +42,20 @@ namespace IrrlichtNETCP
             if (Elements.ContainsKey(Raw))
                 Elements.Remove(Raw);
             if (_raw != IntPtr.Zero)
-                try { Pointer_SafeRelease_AEO(_raw); }
+                try { Pointer_SafeRelease(_raw); }
                 catch { };
         }
 
         public override void Drop()
         {
             if (_raw != IntPtr.Zero)
-                try { Pointer_SafeRelease_AEO(_raw); }
+                try { Pointer_SafeRelease(_raw); }
                 catch { };
         }
 
 
         [DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
-        static extern void Pointer_SafeRelease_AEO(IntPtr pointer);
+        static extern void Pointer_SafeRelease(IntPtr pointer);
 
         [DllImport(Native.Dll)]
         static extern void Emitter_SetMinStartSize(IntPtr emitter, float[] size);

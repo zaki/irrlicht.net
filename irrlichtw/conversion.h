@@ -31,7 +31,7 @@ typedef void* IntPtr;
 
 //Please, DO NOT THINK I AM MAD, this is needed for a pointless bug
 //In Visual Studio 8
-// Zaki: 
+// Zaki:
 //#ifdef _MSC_VER
 //bool fixmarshal(bool val);
 //#define _FIX_BOOL_MARSHAL_BUG(val) return fixmarshal(val);
@@ -41,8 +41,6 @@ typedef void* IntPtr;
 
 extern "C" { EXPORT int Pointer_GetReferenceCount(IntPtr pointer); }
 extern "C" { EXPORT void Pointer_SafeRelease(IntPtr pointer); }
-extern "C" { EXPORT void Pointer_SafeRelease_AEO(IntPtr pointer); }
-extern "C" { EXPORT void Pointer_SafeRelease_TS(IntPtr pointer); }
 
 //Now we will define all structures that need to be converted
 //Between Managed and Unmanaged code.
@@ -56,7 +54,7 @@ void UM_DIM2DU(irr::core::dimension2d<unsigned int> base, M_DIM2DU t);
 
 #define M_DIM2US int*
 #define MU_DIM2US(val) irr::core::dimension2d<u32>(val[0], val[1])
-void UM_DIM2US(irr::core::dimension2d<uint> base, M_DIM2US t);
+void UM_DIM2US(irr::core::dimension2d<unsigned int> base, M_DIM2US t);
 
 #define M_DIM2DF float*
 #define MU_DIM2DF(val) irr::core::dimension2d<float>(val[0], val[1])
