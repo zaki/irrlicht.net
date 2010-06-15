@@ -1,4 +1,3 @@
-using IrrlichtNET;
 using System;
 
 namespace IrrlichtNET

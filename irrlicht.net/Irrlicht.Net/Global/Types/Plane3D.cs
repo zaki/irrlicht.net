@@ -1,5 +1,3 @@
-using System;
-
 namespace IrrlichtNET
 {
     public struct Plane3Df

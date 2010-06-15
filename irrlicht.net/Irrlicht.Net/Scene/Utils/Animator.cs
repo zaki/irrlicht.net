@@ -1,6 +1,5 @@
 using System;
 using System.Runtime.InteropServices;
-using IrrlichtNET;
 using System.Security;
 
 namespace IrrlichtNET

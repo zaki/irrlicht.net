@@ -1,8 +1,5 @@
 using System;
-using System.Text;
 using System.Collections;
-using System.IO;
-using IrrlichtNET;
 using IrrlichtNET.Inheritable;
 
 namespace IrrlichtNET.Extensions

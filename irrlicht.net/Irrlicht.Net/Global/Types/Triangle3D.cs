@@ -1,6 +1,3 @@
-using System;
-using System.Text;
-
 namespace IrrlichtNET
 {
     public struct Triangle3D

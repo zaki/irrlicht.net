@@ -76,7 +76,7 @@ namespace IrrlichtNET.Extensions
         {
             float total = 0;
             float p = 0.50f;
-            int n = 4;
+            const int n = 4;
             float frequency = 1;
             float amplitude = 1;
 

@@ -1,6 +1,5 @@
 using System;
 
-
 namespace IrrlichtNET
 {
     public class Quaternion

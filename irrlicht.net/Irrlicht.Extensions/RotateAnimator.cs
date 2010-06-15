@@ -28,8 +28,7 @@ namespace IrrlichtNET.Extensions
             }
             if (p_currentTimeMs - m_startTime <= m_durationMs)
             {
-                Vector3D t_currRotation = p_node.Rotation;
-                t_currRotation = m_rotationStart.GetInterpolated(m_rotationEnd, (p_currentTimeMs - m_startTime) / (float)m_durationMs);
+                Vector3D t_currRotation = m_rotationStart.GetInterpolated(m_rotationEnd, (p_currentTimeMs - m_startTime) / (float)m_durationMs);
                 p_node.Rotation = (t_currRotation);
                 //m_startTime = p_currentTimeMs;
             }

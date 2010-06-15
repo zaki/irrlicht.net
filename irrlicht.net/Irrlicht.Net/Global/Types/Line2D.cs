@@ -50,7 +50,7 @@ namespace IrrlichtNET
             }
         }
 
-        static double ROUNDING_ERROR_32 = 0.000001f;
+        const double ROUNDING_ERROR_32 = 0.000001f;
 
         public bool intersectWith(Line2D l, Vector2D o)
         {

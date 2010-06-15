@@ -1,7 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Security;
-using IrrlichtNET;
 
 namespace IrrlichtNET.Inheritable
 {
