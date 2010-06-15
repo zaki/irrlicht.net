@@ -7,20 +7,6 @@ using System.Security;
 
 namespace IrrlichtNET
 {
-    public delegate void DropCallbackDelegate(IntPtr obj);
-
-    public class DropCallbackClass
-    {
-        // The following method will be invoked from the IrrlichtW layer whenever an
-        // IReferenceCounted object is Dropped and its reference count goes to 0.
-        // This allows us to clean up the C# objects corresponding to the C++ object
-        // that is just about to be deleted.
-        public void OnAboutToDelete(IntPtr obj)
-        {
-            //Console.WriteLine("drop callback");
-        }
-    }
-
     public abstract class NativeElement : IDisposable
     {
         public static Dictionary<IntPtr, NativeElement> Elements = new Dictionary<IntPtr, NativeElement>();
@@ -51,7 +37,6 @@ namespace IrrlichtNET
         public NativeElement(IntPtr raw)
         {
             Initialize(raw);
-            //this.SetCallback();
         }
         protected virtual void Initialize(IntPtr raw)
         {
@@ -60,13 +45,6 @@ namespace IrrlichtNET
                 Elements.Add(raw, this);
             else
                 Elements[raw] = this;
-            //this.SetCallback();
-        }
-
-        [Obsolete]
-        protected virtual void SetCallback()
-        {
-            //ReferenceCounted_SetCallback(_raw, dropCallbackDelegateObject);
         }
 
         public virtual void Dispose()
@@ -108,16 +86,9 @@ namespace IrrlichtNET
         protected IntPtr _raw = IntPtr.Zero;
         public IntPtr Raw { get { return _raw; } }
         public bool Null() { return _raw == IntPtr.Zero; }
-        public int GetReferenceCount() { return Pointer_GetReferenceCount(_raw); }
 
         [System.Runtime.InteropServices.DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
         static extern void Pointer_SafeRelease(IntPtr pointer);
-
-        [System.Runtime.InteropServices.DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
-        static extern int Pointer_GetReferenceCount(IntPtr pointer);
-
-        [System.Runtime.InteropServices.DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
-        static extern int ReferenceCounted_SetCallback(IntPtr obj, DropCallbackDelegate callback);
         #endregion
     }
 

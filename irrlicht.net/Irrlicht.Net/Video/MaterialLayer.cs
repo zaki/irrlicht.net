@@ -95,14 +95,6 @@ namespace IrrlichtNET
             }
         }
 
-        [Obsolete]
-        protected override void SetCallback()
-        {
-            // do nothing here because MaterialLayer on the C++ side is not an IReferenceCounted
-            // but it masquerades as a NativeElement on the C# side
-            //base.SetCallback();
-        }
-
         public override void Dispose()
         {
             // do nothing here because MaterialLayer on the C++ side is not an IReferenceCounted
