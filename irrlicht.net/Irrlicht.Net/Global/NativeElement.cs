@@ -44,7 +44,6 @@ namespace IrrlichtNET
 
         public virtual void Drop()
         {
-            // Because sometimes we don't want to remove the item from Elements, just decrease the ReferenceCount
             if (_raw != IntPtr.Zero)
             {
                 try
@@ -54,7 +53,14 @@ namespace IrrlichtNET
                     if (refCount > 0 && refCount < 999999)
                     {
                         Pointer_SafeRelease(_raw);
-                        _raw = IntPtr.Zero;
+                        if (refCount == 1)
+                        {
+                            if (Elements.ContainsKey(_raw))
+                            {
+                                Elements.Remove(_raw);
+                            }
+                            _raw = IntPtr.Zero;
+                        }
                     }
                     else
                     {
