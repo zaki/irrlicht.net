@@ -95,17 +95,6 @@ namespace IrrlichtNET
             }
         }
 
-        public override void Dispose()
-        {
-            // do nothing here because MaterialLayer on the C++ side is not an IReferenceCounted
-            // but it masquerades as a NativeElement on the C# side
-            if (Elements.ContainsKey(Raw))
-                Elements.Remove(Raw);
-
-            // do not try to release the material, as MaterialLayer originally is not IReferenceCounted and can not/must not be grabbed/dropped
-            // do not invoke base.Dispose to prevent invoking Pointer_SafeRelease (and the subsequent Drop())
-        }
-
         #region Native Imports
         // [DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
         //static extern IntPtr MaterialLayer_Create();

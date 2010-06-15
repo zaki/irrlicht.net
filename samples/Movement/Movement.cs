@@ -77,6 +77,8 @@ namespace Movement
             {
                 RenderLoop();
             }
+
+            device.Drop();
         }
 
         private static void RenderLoop()

@@ -15,11 +15,7 @@ int Pointer_GetReferenceCount(IntPtr pointer)
 
     if(pointer)
     {
-#ifdef VIREFERENCECOUNTED
         tmpPtr = (irr::IReferenceCounted *)(VIReferenceCounted*)pointer;
-#else
-        tmpPtr = (irr::IReferenceCounted *)pointer;
-#endif
         return tmpPtr->getReferenceCount();
     }
     else
@@ -34,11 +30,7 @@ void Pointer_SafeRelease(IntPtr pointer)
 
     if(pointer)
     {
-#ifdef VIREFERENCECOUNTED
         tmpPtr = (irr::IReferenceCounted *)(VIReferenceCounted*)pointer;
-#else
-        tmpPtr = (irr::IReferenceCounted *)pointer;
-#endif
         tmpPtr->drop();
     }
 }

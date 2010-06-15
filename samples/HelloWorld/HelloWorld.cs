@@ -56,6 +56,8 @@ namespace HelloWorld
             {
                 RenderLoop();
             }
+
+            device.Drop();
         }
 
         private static void RenderLoop()

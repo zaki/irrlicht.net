@@ -28,7 +28,7 @@ namespace IrrlichtNET
                     array[i] = (Particle)NativeElement.GetObject((IntPtr)Particles[i], typeof(Particle));
                 aff.Affect(now, array);
                 for (int i = 0; i < array.Length; i++)
-                    array[i].Dispose();
+                    array[i].Drop();
                 array = null;
             };
             AntiGC.Add(del);
@@ -86,7 +86,7 @@ namespace IrrlichtNET
                 Emitter_AddParticle(emitter, array, array.Length);
 
                 for (int i = 0; i < outParticles.Length; i++)
-                    outParticles[i].Dispose();
+                    outParticles[i].Drop();
                 outParticles = null;
             };
             AntiGC.Add(del);

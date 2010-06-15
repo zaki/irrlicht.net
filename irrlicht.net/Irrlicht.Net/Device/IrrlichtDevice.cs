@@ -1,4 +1,3 @@
-using IrrlichtNET;
 using System;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
@@ -246,7 +245,7 @@ namespace IrrlichtNET
                 return an.Version.ToString();
             }
         }
-        public override void Dispose()
+        public override void Drop()
         {
             try
             {

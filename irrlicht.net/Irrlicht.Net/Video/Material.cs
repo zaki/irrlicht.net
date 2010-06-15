@@ -22,15 +22,6 @@ namespace IrrlichtNET
             // To create a new material structure
         }
 
-        public override void Dispose()
-        {
-            //System.Diagnostics.Debug.WriteLine("*** Releasing material");
-            if (Elements.ContainsKey(Raw))
-                Elements.Remove(Raw);
-            //Material_Release(_raw); // do not try to release the material, as Materials originally were not IReferenceCounted and can not/must not be grabbed/dropped
-            //base.Dispose(); // do not invoke base.Dispose to prevent invoking Pointer_SafeRelease (and the subsequent Drop())
-        }
-
         public void CopyTo(Material dest)
         {
             dest.AmbientColor = AmbientColor;

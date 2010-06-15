@@ -273,13 +273,6 @@ namespace IrrlichtNET
                                         typeof(Material));
         }
 
-        public override void Dispose()
-        {
-            if (Raw != IntPtr.Zero)
-                this.Remove();
-            base.Dispose();
-        }
-
         public virtual void OnAnimate(uint timeMS)
         {
             SceneNode_OnAnimate(_raw, timeMS);

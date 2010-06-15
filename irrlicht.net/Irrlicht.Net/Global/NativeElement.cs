@@ -1,18 +1,13 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using System.Security;
 
 
 namespace IrrlichtNET
 {
-    public abstract class NativeElement : IDisposable
+    public abstract class NativeElement
     {
         public static Dictionary<IntPtr, NativeElement> Elements = new Dictionary<IntPtr, NativeElement>();
-
-        //static DropCallbackClass dropCallbackObject = new DropCallbackClass();
-        //static DropCallbackDelegate dropCallbackDelegateObject = dropCallbackObject.OnAboutToDelete; // ensure that we have ONE delegate used for ALL NativeElements
 
         public static object GetObject(IntPtr raw, Type t)
         {
@@ -47,15 +42,6 @@ namespace IrrlichtNET
                 Elements[raw] = this;
         }
 
-        public virtual void Dispose()
-        {
-            if (Elements.ContainsKey(Raw))
-                Elements.Remove(Raw);
-            if (_raw != IntPtr.Zero)
-                try { Pointer_SafeRelease(_raw); }
-                catch { };
-        }
-
         public virtual void Drop()
         {
             // Because sometimes we don't want to remove the item from Elements, just decrease the ReferenceCount
@@ -63,16 +49,16 @@ namespace IrrlichtNET
             {
                 try
                 {
-                    // if _raw has become invalid, the vtable for the IReferenceCount* part of _raw will be garbage
-                    // and this method call should throw an exception, thus skipping over the Pointer_SafeRelease
-                    //int refCount = this.GetReferenceCount();
+                    int refCount = GetReferenceCount();
 
-                    // as an extra check, do a sanity check on refCount. This also ensures that the refCount
-                    // variable is used so the above call to this.GetReferenceCount() will definitely get
-                    // executed (and not optimized away)
-                    //if (refCount > 0 && refCount < 999999)
+                    if (refCount > 0 && refCount < 999999)
                     {
                         Pointer_SafeRelease(_raw);
+                        _raw = IntPtr.Zero;
+                    }
+                    else
+                    {
+                        throw new AccessViolationException("Invalid pointer given to Drop()");
                     }
                 }
                 catch (Exception)
@@ -81,6 +67,7 @@ namespace IrrlichtNET
                 }
             }
         }
+        public int GetReferenceCount() { return Pointer_GetReferenceCount(_raw); }
 
         #region .NET Wrapper Native Code
         protected IntPtr _raw = IntPtr.Zero;
@@ -89,6 +76,9 @@ namespace IrrlichtNET
 
         [System.Runtime.InteropServices.DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
         static extern void Pointer_SafeRelease(IntPtr pointer);
+
+        [System.Runtime.InteropServices.DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
+        static extern int Pointer_GetReferenceCount(IntPtr pointer);
         #endregion
     }
 
