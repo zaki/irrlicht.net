@@ -61,7 +61,7 @@ namespace IrrlichtNET
         }
         public static Position2D operator /(Position2D first, Position2D other)
         {
-            return new Position2D((int)(first.X / other.X), (int)(first.Y / other.Y));
+            return new Position2D(first.X / other.X, first.Y / other.Y);
         }
         public static Position2D operator /(Position2D first, float scalar)
         {

@@ -1,6 +1,3 @@
-
-using System;
-using IrrlichtNET;
 using IrrlichtNET.Inheritable;
 
 namespace IrrlichtNET.Extensions

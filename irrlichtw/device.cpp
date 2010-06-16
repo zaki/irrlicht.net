@@ -82,11 +82,6 @@ bool Device_Run(IntPtr device)
     _FIX_BOOL_MARSHAL_BUG(GetDeviceFromIntPtr(device)->run());
 }
 
-void Device_Drop(IntPtr device)
-{
-    GetDeviceFromIntPtr(device)->drop();
-}
-
 void Device_Close(IntPtr device)
 {
     GetDeviceFromIntPtr(device)->closeDevice();

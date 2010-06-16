@@ -121,7 +121,7 @@ namespace IrrlichtNET.Extensions
 
                 double d = pos.DistanceFrom(campos) / GRASS_PATCH_SIZE;
                 if (d > 1.0)
-                    max = (int)(((double)max) / d);
+                    max = (int)(max / d);
 
                 //Matrix4 m = new Matrix4();
 
@@ -157,8 +157,8 @@ namespace IrrlichtNET.Extensions
                     int xgrid = (int)(particle.pos.X / (igridsize) + ihalfres);
                     int zgrid = (int)(particle.pos.Z / (igridsize) + ihalfres);
 
-                    float xnext = particle.pos.X / (GRASS_PATCH_SIZE / WindRes) + (WindRes / 2f) - xgrid;
-                    float znext = particle.pos.Z / (GRASS_PATCH_SIZE / WindRes) + (WindRes / 2f) - zgrid;
+                    float xnext = particle.pos.X / ((float)GRASS_PATCH_SIZE / (float)WindRes) + (WindRes / 2f) - xgrid;
+                    float znext = particle.pos.Z / ((float)GRASS_PATCH_SIZE / (float)WindRes) + (WindRes / 2f) - zgrid;
 
                     Vector2D wind1 = WindGrid[xgrid * WindRes + zgrid];
                     Vector2D wind2 = WindGrid[(xgrid + 1) * WindRes + zgrid];
@@ -229,7 +229,7 @@ namespace IrrlichtNET.Extensions
                 int oldSize = Vertices.Length;
                 ArrayList newvert = new ArrayList();
 
-                int i = 0;
+                int i;
                 newvert.AddRange(Vertices);
                 for (i = oldSize; i < (Particles.Length * 4); i++)
                 {
@@ -325,14 +325,10 @@ namespace IrrlichtNET.Extensions
 
                 Vector3D p = Position + Particles[i].pos;
 
-                Dimension2Df size;
-
                 Vector3D xz = new Vector3D(p.X / Terrain.Scale.X, 0f, p.Z / Terrain.Scale.Z);
 
                 int x1 = (int)Math.Floor(xz.X);
                 int z1 = (int)Math.Floor(xz.Z);
-
-                float height;
 
                 if (x1 < 1 ||
                    z1 < 1 ||
@@ -350,10 +346,10 @@ namespace IrrlichtNET.Extensions
                 float dy = THMRetrieve[x1 + 1, z1 + 1].B * Terrain.Scale.Y;
                 float u1 = xz.X - x1;
                 float v1 = xz.Z - z1;
-                height = ay * (1.0f - u1) * (1.0f - v1) + by * u1 * (1.0f - v1) + cy * (1.0f - u1) * v1 + dy * u1 * v1;
+                float height = ay * (1.0f - u1) * (1.0f - v1) + by * u1 * (1.0f - v1) + cy * (1.0f - u1) * v1 + dy * u1 * v1;
 
-                size = new Dimension2Df(rand.Next(40, 70), 100);
-                size.Height *= (float)cDensity.B / 200f;
+                Dimension2Df size = new Dimension2Df(rand.Next(40, 70), 100);
+                size.Height *= cDensity.B / 200f;
 
                 Particles[i].pos.Y = height + (size.Height * 0.5f);
 
@@ -388,12 +384,9 @@ namespace IrrlichtNET.Extensions
             return true;
         }
 
-        float _drawdistance;
-        public float DrawDistance { get { return _drawdistance; } set { _drawdistance = value; } }
-        int _maxdensity;
-        public int MaxDensity { get { return _maxdensity; } set { _maxdensity = value; } }
-        int _fpslock;
-        public int MaxFPS { get { return _fpslock; } set { _fpslock = value; } }
+        public float DrawDistance { get; set; }
+        public int MaxDensity { get; set; }
+        public int MaxFPS { get; set; }
         uint _windres;
         public uint WindRes
         {

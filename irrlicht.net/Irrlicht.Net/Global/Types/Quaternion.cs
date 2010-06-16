@@ -125,10 +125,9 @@ namespace IrrlichtNET
         //! multiplication operator by a vector
         public static Vector3D operator *(Vector3D lhs, Quaternion rhs)
         {
-            Vector3D uv, uuv;
             Vector3D qvec = new Vector3D(rhs.X, rhs.Y, rhs.Z);
-            uv = qvec.CrossProduct(lhs);
-            uuv = qvec.CrossProduct(uv);
+            Vector3D uv = qvec.CrossProduct(lhs);
+            Vector3D uuv = qvec.CrossProduct(uv);
             uv *= (2.0f * rhs.W);
             uuv *= 2.0f;
 
@@ -211,7 +210,7 @@ namespace IrrlichtNET
         public Quaternion FromMatrix(Matrix4 m)
         {
             float diag = m.GetM(0, 0) + m.GetM(1, 1) + m.GetM(2, 2) + 1;
-            float scale = 0.0f;
+            float scale;
 
             if (diag > 0.0f)
             {

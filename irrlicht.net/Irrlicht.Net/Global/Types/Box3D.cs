@@ -180,15 +180,15 @@ namespace IrrlichtNET
                 (Math.Abs(t.Z) > e.Z + halfLength * Math.Abs(lineVector.Z)))
                 return false;
 
-            float r = e.Y * (float)Math.Abs(lineVector.Z) + e.Z * Math.Abs(lineVector.Y);
+            float r = e.Y * Math.Abs(lineVector.Z) + e.Z * Math.Abs(lineVector.Y);
             if (Math.Abs(t.Y * lineVector.Z - t.Z * lineVector.Y) > r)
                 return false;
 
-            r = e.X * (float)Math.Abs(lineVector.Z) + e.Z * Math.Abs(lineVector.X);
+            r = e.X * Math.Abs(lineVector.Z) + e.Z * Math.Abs(lineVector.X);
             if (Math.Abs(t.Z * lineVector.X - t.X * lineVector.Z) > r)
                 return false;
 
-            r = e.X * (float)Math.Abs(lineVector.Y) + e.Y * Math.Abs(lineVector.X);
+            r = e.X * Math.Abs(lineVector.Y) + e.Y * Math.Abs(lineVector.X);
             if (Math.Abs(t.X * lineVector.Y - t.Y * lineVector.X) > r)
                 return false;
 

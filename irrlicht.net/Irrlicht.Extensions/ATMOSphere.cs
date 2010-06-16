@@ -9,7 +9,6 @@
 
 
 using System;
-using IrrlichtNET;
 using IrrlichtNET.Inheritable;
 
 namespace IrrlichtNET.Extensions
@@ -175,7 +174,7 @@ namespace IrrlichtNET.Extensions
 
         public SceneNode CreateLensflare(Texture tex)
         {
-            lens = new LensflareSceneNode(sun, smgr, -1, new Vector3D(0, 0, 0));
+            lens = new LensflareSceneNode(sun, smgr, -1);
             lens.Material.Texture1 = tex;
             return lens;
         }
@@ -290,8 +289,7 @@ namespace IrrlichtNET.Extensions
         {
             currentTime = realtime;
             dTime = currentTime - startTime;
-            Color sp;
-            J = J + (((double)dayspeed / 86400) / 1000.0f) * dTime;
+            J = J + ((dayspeed / 86400) / 1000.0) * dTime;
             if (time_int_step == 0.0f)
             {//calculate sun interpolation positions
                 prep_interpolation(J, sun_interpolation_speed * J1minute);
@@ -326,15 +324,15 @@ namespace IrrlichtNET.Extensions
             double inv = 1.0f - time_int_step;
             uvX = (float)((sun_angle_from * inv + sun_angle_to * time_int_step) + 90.0f) / 180;
             if (time_int_step >= 1.0f || time_int_step <= -1.0f) { time_int_step = 0.0f; }
-            sp = dangus.GetPixel((int)Math.Round(128 * uvX), 123);
-            smgr.SetAmbientLight(Colorf.From((float)sp.A / 255f,
-                                            (float)sp.R / 255f,
-                                            (float)sp.G / 255f,
-                                            (float)sp.B / 255f));
-            AmbientLight = Colorf.From((float)sp.A / 255f,
-                                             (float)sp.R / 255f,
-                                             (float)sp.G / 255f,
-                                             (float)sp.B / 255f);
+            Color sp = dangus.GetPixel((int)Math.Round(128 * uvX), 123);
+            smgr.SetAmbientLight(Colorf.From(sp.A / 255f,
+                                            sp.R / 255f,
+                                            sp.G / 255f,
+                                            sp.B / 255f));
+            AmbientLight = Colorf.From(sp.A / 255f,
+                                             sp.R / 255f,
+                                             sp.G / 255f,
+                                             sp.B / 255f);
             //driver->setAmbientLight(video::SColor(255,sp.getRed(),sp.getGreen(),sp.getBlue()));
             sky.UV = uvX;
 
@@ -349,7 +347,7 @@ namespace IrrlichtNET.Extensions
 
             smgr.AddSkyBoxSceneNode(this, stars, -1);
 
-            sky = new ATMOSkySceneNode(dangus, smgr.RootSceneNode, smgr, 80, skyid);
+            sky = new ATMOSkySceneNode(dangus, smgr.RootSceneNode, smgr, 80, 0);
             sky.Material.MaterialType = MaterialType.TransparentAlphaChannel;
             sky.Material.MaterialTypeParam = 0.01f;
 
@@ -399,7 +397,6 @@ namespace IrrlichtNET.Extensions
 
         Texture[] stars;
         Texture suntex;
-        int skyid = 0;
         float uvX;
         Texture dangus;
         double rad;
@@ -436,15 +433,12 @@ namespace IrrlichtNET.Extensions
                                        Vector2D.From(0.0f, 0.1f)
                                       );
 
-            double x, z;
-
-
             for (ushort n = 1; n < face + 1; n++)
             {
                 vert++;
                 nr += 3;
-                x = Math.Cos(angle * 0.017453292519943295769236907684886f) * 100;
-                z = Math.Sin(angle * 0.017453292519943295769236907684886f) * 100;
+                double x = Math.Cos(angle * 0.017453292519943295769236907684886f) * 100;
+                double z = Math.Sin(angle * 0.017453292519943295769236907684886f) * 100;
 
                 vertices[vert] = new Vertex3D(Vector3D.From((float)x, -5.0f, (float)z),
                                        Vector3D.From(0.0568988f, 0.688538f, -0.722965f),
@@ -485,7 +479,7 @@ namespace IrrlichtNET.Extensions
             driver.SetMaterial(material);
             for (int i = 1; i < face + 1; i++)
             {
-                (vertices[i] as Vertex3D).TCoords = Vector2D.From(uvX, 0.98f);
+                vertices[i].TCoords = Vector2D.From(uvX, 0.98f);
             }
 
             vertices[0].TCoords = Vector2D.From(uvX, 0.01f);

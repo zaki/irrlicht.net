@@ -2,7 +2,6 @@
 
 using System;
 using System.Runtime.InteropServices;
-using IrrlichtNET;
 
 namespace IrrlichtNET.Extensions
 {
@@ -46,7 +45,7 @@ namespace IrrlichtNET.Extensions
 
         public int Attach(TTFace face, uint size)
         {
-            return (int)TTFont_Attach(_raw, face.Raw, size);
+            return TTFont_Attach(_raw, face.Raw, size);
         }
 
         public bool Antialias

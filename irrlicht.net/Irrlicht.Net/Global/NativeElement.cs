@@ -33,7 +33,7 @@ namespace IrrlichtNET
         {
             Initialize(raw);
         }
-        protected virtual void Initialize(IntPtr raw)
+        protected void Initialize(IntPtr raw)
         {
             _raw = raw;
             if (!Elements.ContainsKey(raw))
@@ -42,7 +42,7 @@ namespace IrrlichtNET
                 Elements[raw] = this;
         }
 
-        public virtual void Drop()
+        public void Drop()
         {
             if (_raw != IntPtr.Zero)
             {

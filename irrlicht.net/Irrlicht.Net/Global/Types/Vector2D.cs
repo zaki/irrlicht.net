@@ -60,9 +60,8 @@ namespace IrrlichtNET
         ///<returns> True if between points, false if not. </returns>
         public bool IsBetweenPoints(Vector2D begin, Vector2D end)
         {
-            float f = (float)((end - begin).LengthSQ);
-            return (float)GetDistanceFromSQ(begin) < f &&
-                (float)GetDistanceFromSQ(end) < f;
+            float f = (end - begin).LengthSQ;
+            return GetDistanceFromSQ(begin) < f && GetDistanceFromSQ(end) < f;
         }
 
         public static Vector2D operator +(Vector2D first, Vector2D other)

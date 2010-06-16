@@ -1,8 +1,6 @@
 //Thread for this scene node :
 //http://irrlichtnetcp.sourceforge.net/phpBB2/viewtopic.php?p=47
 using System;
-using System.Text;
-using IrrlichtNET;
 using IrrlichtNET.Inheritable;
 
 namespace IrrlichtNET.Extensions
@@ -50,14 +48,13 @@ namespace IrrlichtNET.Extensions
             //r -target node position
 
             Vector3D angle = new Vector3D();
-            float x, y, z;
-            x = r.X - v.X;
-            y = r.Y - v.Y;
-            z = r.Z - v.Z;
+            float x = r.X - v.X;
+            float y = r.Y - v.Y;
+            float z = r.Z - v.Z;
 
             //angle in X-Z plane
             angle.Y = (float)Math.Atan2(x, z);
-            angle.Y *= (float)(180 / NewMath.PI); //converting from rad to degrees
+            angle.Y *= 180 / NewMath.PI; //converting from rad to degrees
 
             //just making sure angle is somewhere between 0-360 degrees
             if (angle.Y < 0) angle.Y += 360;
@@ -67,7 +64,7 @@ namespace IrrlichtNET.Extensions
             float z1 = (float)Math.Sqrt(x * x + z * z);
 
             angle.X = (float)Math.Atan2(z1, y);
-            angle.X *= (float)(180 / NewMath.PI); //converting from rad to degrees
+            angle.X *= 180 / NewMath.PI; //converting from rad to degrees
             angle.X -= 90;
 
             //just making sure angle is somewhere between 0-360 degrees

@@ -25,7 +25,7 @@ namespace IrrlichtNET
             {
                 Particle[] array = new Particle[count];
                 for (int i = 0; i < array.Length; i++)
-                    array[i] = (Particle)NativeElement.GetObject((IntPtr)Particles[i], typeof(Particle));
+                    array[i] = (Particle)NativeElement.GetObject(Particles[i], typeof(Particle));
                 aff.Affect(now, array);
                 for (int i = 0; i < array.Length; i++)
                     array[i].Drop();

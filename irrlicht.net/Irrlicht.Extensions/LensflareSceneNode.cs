@@ -1,5 +1,4 @@
 using System;
-using IrrlichtNET;
 using IrrlichtNET.Inheritable;
 
 namespace IrrlichtNET.Extensions
@@ -8,7 +7,7 @@ namespace IrrlichtNET.Extensions
     public class LensflareSceneNode : ISceneNode
     {
 
-        public LensflareSceneNode(SceneNode parent, SceneManager mgr, int id, Vector3D position)
+        public LensflareSceneNode(SceneNode parent, SceneManager mgr, int id)
             : base(parent, mgr, id)
         {
             draw_flare = true;
@@ -133,7 +132,6 @@ namespace IrrlichtNET.Extensions
                 Vector2D ipos;
                 int nframes = material.Texture1.OriginalSize.Width / material.Texture1.OriginalSize.Height;
                 int imageheight = material.Texture1.OriginalSize.Height;
-                int texw = 8;
                 float texp = 1.0f / nframes;
                 Vector3D target = camera.Target;
                 Vector3D up = camera.UpVector;
@@ -143,18 +141,15 @@ namespace IrrlichtNET.Extensions
                 view.Normalize();
                 Vector3D horizontal = up.CrossProduct(view);
                 horizontal.Normalize();
-                Vector3D vertical;
-                vertical = horizontal.CrossProduct(view);
+                Vector3D vertical = horizontal.CrossProduct(view);
                 vertical.Normalize();
                 view *= -1.0f;
                 for (int i = 0; i < 4; ++i) vertices[i].Normal = view;
-                Vector3D hor;
-                Vector3D ver;
                 driver.SetMaterial(material);
-                Vector3D pos;
                 for (int ax = 0; ax < nframes; ax++)
                 {
-
+                    int texw;
+                    Vector3D pos;
                     if (ax == 0)
                     {
 
@@ -175,8 +170,8 @@ namespace IrrlichtNET.Extensions
                     vertices[1].TCoords = Vector2D.From(ax * texp, 0.0f);
                     vertices[2].TCoords = Vector2D.From((ax + 1) * texp, 0.0f);
                     vertices[3].TCoords = Vector2D.From((ax + 1) * texp, 1.0f);
-                    hor = horizontal * (0.5f * texw);
-                    ver = vertical * (0.5f * texw);
+                    Vector3D hor = horizontal * (0.5f * texw);
+                    Vector3D ver = vertical * (0.5f * texw);
                     vertices[0].Position = pos + hor + ver;
                     vertices[1].Position = pos + hor - ver;
                     vertices[2].Position = pos - hor - ver;

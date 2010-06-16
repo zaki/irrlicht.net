@@ -11,14 +11,6 @@ namespace IrrlichtNET
         {
         }
 
-
-        ~VideoDriver()
-        {
-            //for (int i = 0; i < TextureCount; i++)
-            //{
-            //    lock (Elements) { if (Elements.ContainsKey(GetTextureByIndex(i).Raw)) { Elements.Remove(GetTextureByIndex(i).Raw); } }
-            //}
-        }
         /// <summary>
         /// Begin the scene
         /// </summary>
@@ -617,15 +609,6 @@ namespace IrrlichtNET
         public override string ToString()
         {
             return Name;
-        }
-
-        [Obsolete("This has been moved to SceneManager")]
-        public Colorf AmbientLight
-        {
-            set
-            {
-                //VideoDriver_SetAmbientLight(_raw, value.ToUnmanaged());
-            }
         }
 
         public GPUProgrammingServices GPUProgrammingServices

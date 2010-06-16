@@ -18,7 +18,6 @@ extern "C"
     EXPORT IntPtr   Device_GetTimer(IntPtr device);
     EXPORT void     Device_SetWindowCaption(IntPtr device, M_STRING caption);
     EXPORT bool     Device_IsWindowActive(IntPtr device);
-    EXPORT void     Device_Drop(IntPtr device);
     EXPORT void     Device_Close(IntPtr device);
     EXPORT M_STRING Device_GetVersion(IntPtr device);
     EXPORT void     Device_SetCallback(IntPtr device, EVENTCALLBACK);

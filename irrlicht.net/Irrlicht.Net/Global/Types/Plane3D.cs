@@ -89,7 +89,7 @@ namespace IrrlichtNET
         float GetKnownIntersectionWithLine(Vector3D linePoint1, Vector3D linePoint2)
         {
             Vector3D vect = linePoint2 - linePoint1;
-            float t2 = (float)Normal.DotProduct(vect);
+            float t2 = Normal.DotProduct(vect);
             return (-((Normal.DotProduct(linePoint1) + D) / t2));
         }
 

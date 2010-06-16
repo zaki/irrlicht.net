@@ -74,7 +74,7 @@ namespace IrrlichtNET
 
         public static Dimension2D operator /(Dimension2D first, Dimension2D other)
         {
-            return new Dimension2D((int)(first.Width / other.Width), (int)(first.Height / other.Height));
+            return new Dimension2D(first.Width / other.Width, first.Height / other.Height);
         }
         public static Dimension2D operator /(Dimension2D first, float scalar)
         {

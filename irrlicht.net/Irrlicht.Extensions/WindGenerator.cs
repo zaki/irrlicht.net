@@ -1,15 +1,7 @@
-using System;
-using IrrlichtNET;
-using IrrlichtNET.Inheritable;
-
 namespace IrrlichtNET.Extensions
 {
     public class WindGenerator
     {
-        public WindGenerator()
-        {
-        }
-
         public static WindGenerator CreateWindGenerator(float strength, float regularity)
         {
             WindGenerator wind = new WindGenerator();
@@ -18,10 +10,8 @@ namespace IrrlichtNET.Extensions
             return wind;
         }
 
-        float _strength;
-        public float Strength { get { return _strength; } set { _strength = value; } }
-        float _regularity;
-        public float Regularity { get { return _regularity; } set { _regularity = value; } }
+        public float Strength { get; set; }
+        public float Regularity { get; set; }
 
         public Vector2D Wind(Vector3D position, uint timeMs)
         {
@@ -75,7 +65,7 @@ namespace IrrlichtNET.Extensions
         float noise(float x)
         {
             float total = 0;
-            float p = 0.50f;
+            const float p = 0.50f;
             const int n = 4;
             float frequency = 1;
             float amplitude = 1;

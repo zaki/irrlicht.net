@@ -203,11 +203,10 @@ namespace IrrlichtNET
         {
             get
             {
-                IntPtr ptr_value = IntPtr.Zero;
                 string value;
                 try
                 {
-                    ptr_value = GuiElem_GetText(_raw);
+                    IntPtr ptr_value = GuiElem_GetText(_raw);
                     value = IrrStringMarshal.IntPtrToString(ptr_value);
                 }
                 catch (Exception)

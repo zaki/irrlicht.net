@@ -1,5 +1,4 @@
 using System;
-using IrrlichtNET;
 using IrrlichtNET.Inheritable;
 //Made by DeusXL, A lot of thanks to peter for giving the HLSL translation on the forum !
 namespace IrrlichtNET.Extensions
@@ -36,7 +35,7 @@ namespace IrrlichtNET.Extensions
                 new Dimension2Df(1, 1));
             _current++;
 
-            int dmat = (int)MaterialType.Reflection2Layer;
+            int dmat;
             if (_driver.DriverType == DriverType.OpenGL)
                 dmat = _driver.GPUProgrammingServices.AddHighLevelShaderMaterial(
                  WATER_VERTEX_GLSL, "main", VertexShaderType._1_1, WATER_FRAGMENT_GLSL,
@@ -155,8 +154,7 @@ namespace IrrlichtNET.Extensions
         {
             if (userData == 2 || userData == 3) //All DirectX Shaders
             {
-                Matrix4 worldViewProj;
-                worldViewProj = _driver.GetTransform(TransformationState.Projection);
+                Matrix4 worldViewProj = _driver.GetTransform(TransformationState.Projection);
                 worldViewProj *= _driver.GetTransform(TransformationState.View);
                 worldViewProj *= _driver.GetTransform(TransformationState.World);
                 services.SetVertexShaderConstant("mWorldViewProj", worldViewProj.ToShader());
@@ -192,7 +190,7 @@ namespace IrrlichtNET.Extensions
         }
 
         #region Shaders
-        static string WATER_VERTEX_GLSL =
+        const string WATER_VERTEX_GLSL =
                         "uniform float Time;\n" +
                         "uniform float WaveHeight, WaveLength, WaveSpeed;\n" +
                         "varying vec4 waterpos;\n" +
@@ -205,7 +203,7 @@ namespace IrrlichtNET.Extensions
                         "    waterpos.y += addition * WaveHeight;\n" +
                         "    gl_Position = waterpos;\n" +
                         "}\n";
-        static string WATER_FRAGMENT_GLSL =
+        const string WATER_FRAGMENT_GLSL =
                         "uniform sampler2D ReflectionTexture;\n" +
                         "uniform vec4 AddedColor, MultiColor;\n" +
                         "uniform float UnderWater, WaveDisplacement, WaveRepetition, RefractionFactor;\n" +
@@ -232,7 +230,7 @@ namespace IrrlichtNET.Extensions
                         "   else\n" +
                         "       gl_FragColor.a = RefractionFactor;" +
                         "}\n";
-        static string WATER_HLSL =
+        const string WATER_HLSL =
                         "uniform float Time;\n" +
                         "float4x4 mWorldViewProj;\n" +
                         "float WaveHeight;\n" +
@@ -291,7 +289,7 @@ namespace IrrlichtNET.Extensions
                         "   Output.RGBColor.a = RefractionFactor;\n" +
                         "   return Output;\n" +
                         "}";
-        static string CLAMP_VERTEX_GLSL =
+        const string CLAMP_VERTEX_GLSL =
                         "varying float cutoff;\n" +
                         "void main()\n" +
                         "{\n" +
@@ -299,7 +297,7 @@ namespace IrrlichtNET.Extensions
                         "    gl_Position = ftransform();\n" +
                         "    gl_TexCoord[0] = gl_MultiTexCoord0;\n" +
                         "}\n";
-        static string CLAMP_FRAGMENT_GLSL =
+        const string CLAMP_FRAGMENT_GLSL =
                         "uniform sampler2D DiffuseMap, DetailMap;\n" +
                         "uniform float WaterPositionY;\n" +
                         "varying float cutoff;\n" +
@@ -314,7 +312,7 @@ namespace IrrlichtNET.Extensions
                         "    gl_FragColor = color; \n" +
                         "}\n";
 
-        static string CLAMP_HLSL =
+        const string CLAMP_HLSL =
                         "uniform float Time;\n" +
                         "float4x4 mWorldViewProj;\n" +
                         "float WaterPositionY;\n" +

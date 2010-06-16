@@ -35,13 +35,6 @@ namespace IrrlichtNET
             Device_SetCallback(_raw, MainNativeEvent);
         }
 
-        ~IrrlichtDevice()
-        {
-            //lock (Elements) { if (Elements.ContainsKey(this.FileSystem.Raw)) { Elements.Remove(this.FileSystem.Raw); } }
-            //lock (Elements) { if (Elements.ContainsKey(this.CursorControl.Raw)) { Elements.Remove(this.CursorControl.Raw); } }
-        }
-
-
         protected delegate bool NativeEvent(IntPtr evRaw);
         /// <summary>
         /// Notice that the callback MUST BE KEPT ALIVE not to be collected by the GC
@@ -244,15 +237,6 @@ namespace IrrlichtNET
                     System.Reflection.Assembly.GetAssembly(this.GetType()).GetName();
                 return an.Version.ToString();
             }
-        }
-        public override void Drop()
-        {
-            try
-            {
-                if (_raw != IntPtr.Zero)
-                    Device_Drop(_raw);
-            }
-            catch { }
         }
 
         #region .NET Wrapper Native Code

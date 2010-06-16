@@ -15,25 +15,6 @@ namespace IrrlichtNET
         {
             return (int)Raw;
         }
-
-        public override void Drop()
-        {
-            // Because sometimes we don't want to remove the item from Elements, just decrease the ReferenceCount
-            if (_raw != IntPtr.Zero)
-            {
-                try
-                {
-                    Pointer_SafeRelease(_raw);
-                }
-                catch (Exception)
-                {
-                    System.Diagnostics.Debug.WriteLine("WARNING: Drop failed");
-                }
-            }
-        }
-
-        [System.Runtime.InteropServices.DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
-        static extern void Pointer_SafeRelease(IntPtr pointer);
     }
 
     public class MetaTriangleSelector : TriangleSelector

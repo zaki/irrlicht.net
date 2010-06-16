@@ -69,7 +69,7 @@ namespace IrrlichtNET
         }
 
         public int[] ToUnmanaged() { return new int[] { A, R, G, B }; }
-        public float[] ToShader() { return new float[] { (float)R / 255f, (float)G / 255f, (float)B / 255f, (float)A / 255f }; }
+        public float[] ToShader() { return new float[] { R / 255f, G / 255f, B / 255f, A / 255f }; }
         public static Color FromUnmanaged(int[] un) { return From(un[0], un[1], un[2], un[3]); }
         public override string ToString()
         {
@@ -174,7 +174,7 @@ namespace IrrlichtNET
         /// <returns>The Irrlicht color</returns>
         public static Colorf FromBCL(System.Drawing.Color bcl)
         {
-            return new Colorf((float)bcl.A / 255f, (float)bcl.R / 255f, (float)bcl.G / 255f, (float)bcl.B / 255f);
+            return new Colorf(bcl.A / 255f, bcl.R / 255f, bcl.G / 255f, bcl.B / 255f);
         }
 
         public float[] ToUnmanaged() { return new float[] { R, G, B, A }; }

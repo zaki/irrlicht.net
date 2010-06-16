@@ -100,16 +100,16 @@ namespace IrrlichtNET.Inheritable
             switch (method)
             {
                 case CGE_INT_METHOD.ON_EVENT:
-                    return OnEvent((Event)NativeElement.GetObject(arg1, typeof(Event))) == true ? 1 : 0;
+                    return OnEvent((Event)NativeElement.GetObject(arg1, typeof(Event))) ? 1 : 0;
 
                 case CGE_INT_METHOD.IS_ENABLED:
-                    return Enabled == true ? 1 : 0;
+                    return Enabled ? 1 : 0;
 
                 case CGE_INT_METHOD.GET_ID:
                     return ID;
 
                 case CGE_INT_METHOD.GET_NOCLIP:
-                    return Noclip == true ? 1 : 0;
+                    return Noclip ? 1 : 0;
 
                 case CGE_INT_METHOD.GET_TYPE:
                     return (int)Type;
@@ -173,7 +173,7 @@ namespace IrrlichtNET.Inheritable
             set
             {
                 CGE_PVOID_METHODS(_raw, CGE_VOID_METHOD.SET_ENABLED, IntPtr.Zero,
-                                      value == true ? 1 : 0, 0, null);
+                                      value ? 1 : 0, 0, null);
             }
         }
 
@@ -213,7 +213,7 @@ namespace IrrlichtNET.Inheritable
             set
             {
                 CGE_PVOID_METHODS(_raw, CGE_VOID_METHOD.SET_NOT_CLIPPED, IntPtr.Zero,
-                                      value == true ? 1 : 0, 0, null);
+                                      value ? 1 : 0, 0, null);
             }
         }
 

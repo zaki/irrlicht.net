@@ -11,12 +11,6 @@ namespace IrrlichtNET
         {
         }
 
-        ~GUIEnvironment()
-        {
-            // Readd this when the GUIEnvironment is properly release from C# side
-            //lock (Elements) { if (Elements.ContainsKey(this.Skin.Raw)) { Elements.Remove(this.Skin.Raw); } }
-        }
-
         public GUIButton AddButton(Rect rectangle, GUIElement parent, int id, string text)
         {
             IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);

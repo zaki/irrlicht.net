@@ -2,8 +2,6 @@
     Perlin simplex noise terrain by cube3
 */
 
-using System;
-using IrrlichtNET;
 using IrrlichtNET.Extensions.Other;
 using IrrlichtNET.Inheritable;
 
@@ -79,8 +77,8 @@ namespace IrrlichtNET.Extensions
 
             Box3D = new Box3D(new Vector3D(startX, -_heightScale, startZ), new Vector3D(endX, _heightScale, endZ));
 
-            float uCoordIncrementSize = 1.0f;
-            float vCoordIncrementSize = 1.0f;
+            const float uCoordIncrementSize = 1.0f;
+            const float vCoordIncrementSize = 1.0f;
 
             _heights = new float[NumVertices];
 
@@ -92,9 +90,8 @@ namespace IrrlichtNET.Extensions
                 {
 
                     int index = i * _numVertsPerRow + j;
-                    float height;// = noise.PerlinNoise1F(x, 100*heightScale, 0.001f);
                     // large noise.
-                    height = PerlinSimplexNoise.noise(x * 0.0001f, z * 0.0001f) * _heightScale;
+                    float height = PerlinSimplexNoise.noise(x * 0.0001f, z * 0.0001f) * _heightScale;
                     // detail noise.
                     height += PerlinSimplexNoise.noise(x * 0.001f, z * 0.001f) * _heightScale / 10;
                     Vertex3D v = new Vertex3D(

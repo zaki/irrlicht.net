@@ -16,11 +16,6 @@ namespace IrrlichtNET
         {
         }
 
-        ~SceneManager()
-        {
-            //lock (Elements) { if (Elements.ContainsKey(MeshManipulator.Raw)) { Elements.Remove(MeshManipulator.Raw); } }
-        }
-
         /// <summary>
         /// Adds a simple animated mesh scene node to the scene
         /// </summary>
@@ -271,13 +266,12 @@ namespace IrrlichtNET
             IntPtr par = IntPtr.Zero;
             if (parent != null)
                 par = parent.Raw;
-            IntPtr top, bottom, left, right, front, back;
-            top = textureList[0].Raw;
-            bottom = textureList[1].Raw;
-            right = textureList[2].Raw;
-            left = textureList[3].Raw;
-            front = textureList[4].Raw;
-            back = textureList[5].Raw;
+            IntPtr top = textureList[0].Raw;
+            IntPtr bottom = textureList[1].Raw;
+            IntPtr right = textureList[2].Raw;
+            IntPtr left = textureList[3].Raw;
+            IntPtr front = textureList[4].Raw;
+            IntPtr back = textureList[5].Raw;
             return (SceneNode)
                 NativeElement.GetObject(SceneManager_AddSkyBoxSceneNode(_raw, top, bottom, left, right, front, back, par, id),
                                         typeof(SceneNode));
