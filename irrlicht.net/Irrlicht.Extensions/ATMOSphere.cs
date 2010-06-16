@@ -23,7 +23,6 @@ namespace IrrlichtNET.Extensions
         {
 
             smgr = mgr;
-            driver = smgr.VideoDriver;
             timer = _timer;
             currentTime = timer.RealTime;
             startTime = timer.RealTime;
@@ -333,7 +332,6 @@ namespace IrrlichtNET.Extensions
                                              sp.R / 255f,
                                              sp.G / 255f,
                                              sp.B / 255f);
-            //driver->setAmbientLight(video::SColor(255,sp.getRed(),sp.getGreen(),sp.getBlue()));
             sky.UV = uvX;
 
             startTime = currentTime;
@@ -369,7 +367,6 @@ namespace IrrlichtNET.Extensions
 
 
         SceneManager smgr;
-        VideoDriver driver;
 
         BillboardSceneNode sun;
         ATMOSkySceneNode sky;

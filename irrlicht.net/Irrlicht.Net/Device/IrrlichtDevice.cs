@@ -274,9 +274,6 @@ namespace IrrlichtNET
         static extern bool Device_Run(IntPtr raw);
 
         [DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
-        static extern void Device_Drop(IntPtr raw);
-
-        [DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
         static extern void Device_Close(IntPtr raw);
 
         [DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]

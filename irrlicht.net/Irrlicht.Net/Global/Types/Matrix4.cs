@@ -175,18 +175,20 @@ namespace IrrlichtNET
         /// <summary> Direct accessing every row and colum of the matrix values </summary>
         public float GetM(int col, int row)
         {
-            if (row < 0 || row >= 4 ||
-                col < 0 || col >= 4)
-                throw new ArgumentOutOfRangeException("Invalid index for accessing matrix members");
+            if (row < 0 || row >= 4)
+                throw new ArgumentOutOfRangeException("row", "Invalid index for accessing matrix members");
+            if (col < 0 || col >= 4)
+                throw new ArgumentOutOfRangeException("col", "Invalid index for accessing matrix members");
 
             return M[row * 4 + col];
         }
 
         public void SetM(int col, int row, float m)
         {
-            if (row < 0 || row >= 4 ||
-                col < 0 || col >= 4)
-                throw new ArgumentOutOfRangeException("Invalid index for accessing matrix members");
+            if (row < 0 || row >= 4)
+                throw new ArgumentOutOfRangeException("row", "Invalid index for accessing matrix members");
+            if (col < 0 || col >= 4)
+                throw new ArgumentOutOfRangeException("col", "Invalid index for accessing matrix members");
 
             M[row * 4 + col] = m;
         }

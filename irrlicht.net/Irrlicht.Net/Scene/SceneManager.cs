@@ -307,6 +307,7 @@ namespace IrrlichtNET
         /// <param name="vertexColor">Default color of all the vertices used if no texture is assigned to the node.</param>
         /// <param name="maxLOD">Maximal LOD, set 5 or change it ONLY IF YOU KNOW WHAT YOU ARE DOING</param>
         /// <param name="patchSize">PatchSize, should be 17 and you mustn't change it unless you know what you're doing</param>
+        /// <param name="smoothFactor">Smoothing factor</param>
         public TerrainSceneNode AddTerrainSceneNode(string heightMap, SceneNode parent, int id, Vector3D position, Vector3D rotation, Vector3D scale, Color vertexColor, int maxLOD, TerrainPatchSize patchSize, int smoothFactor)
         {
             IntPtr par = IntPtr.Zero;
@@ -343,6 +344,7 @@ namespace IrrlichtNET
         /// <param name="vertRes">Number of vertices of a vertical layer of the sphere. </param>
         /// <param name="texturePercentage">How much of the height of the texture is used. Should be between 0 and 1. </param>
         /// <param name="spherePercentage">How much of the sphere is drawn. Value should be between 0 and 2, where 1 is an exact half-sphere and 2 is a full sphere. </param>
+        /// <param name="radius"></param>
         /// <param name="parent">Parent scene node of the dome. A dome usually has no parent, so this should be null. Note: If a parent is set, the dome will not change how it is drawn.</param>
         /// <returns>The scene node</returns>
         public SceneNode AddSkyDomeSceneNode(Texture texture, uint horiRes, uint vertRes, double texturePercentage, double spherePercentage, double radius, SceneNode parent)
@@ -399,9 +401,12 @@ namespace IrrlichtNET
         /// <returns>The Node</returns>
         /// <param name="font">Font</param>
         /// <param name="text">Text (can be changed later)</param>
+        /// <param name="parent">Its parent</param>
+        /// <param name="size"></param>
+        /// <param name="position"></param>
+        /// <param name="id"></param>
         /// <param name="shade_top">Color of the top shade</param>
         /// <param name="shade_down">Color of the bottom shade</param>
-        /// <param name="parent">Its parent</param>
         public TextSceneNode AddBillboardTextSceneNode(GUIFont font, string text, SceneNode parent, Dimension2Df size, Vector3D position, int id, Color shade_top, Color shade_down)
         {
             IntPtr par = IntPtr.Zero;
@@ -677,7 +682,7 @@ namespace IrrlichtNET
         /// Retrieves the mesh from an IReadFile interface (can also be in-memory)
         /// </summary>
         /// <returns>The mesh.</returns>
-        /// <param name="name">The (opaque) IReadFile pointer.</param>
+        /// <param name="readFile">The (opaque) IReadFile pointer.</param>
         public AnimatedMesh GetMeshFromReadFile(IntPtr readFile)
         {
             return (AnimatedMesh)
@@ -760,6 +765,7 @@ namespace IrrlichtNET
         /// Loads a scene. Note that the current scene is not cleared before.
         /// </summary>
         /// <param name="filename">File where the scene is going to be saved into.</param>
+        /// <param name="parent"></param>
         public void LoadScene(string filename, SceneNode parent)
         {
             SceneManager_LoadScene(_raw, filename, parent.Raw);

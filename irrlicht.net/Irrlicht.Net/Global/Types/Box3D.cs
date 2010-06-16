@@ -161,7 +161,7 @@ namespace IrrlichtNET
         /// <summary>
         /// Checks an intersection with some line
         /// </summary>
-        /// <param name="LineToCol">
+        /// <param name="lineToCol">
         /// A line to be checked <see cref="Line3D"/>
         /// </param>
         /// <returns>
