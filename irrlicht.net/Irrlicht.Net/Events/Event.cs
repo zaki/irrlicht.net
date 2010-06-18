@@ -116,6 +116,8 @@ namespace IrrlichtNET
         {
             get
             {
+                return Event_GetLogString(_raw);
+                /*
                 byte[] str = new byte[1024];
                 Event_GetLogString(_raw, str);
                 string tor = string.Empty;
@@ -125,6 +127,7 @@ namespace IrrlichtNET
                     else
                         tor += (char)(str[i]);
                 return tor;
+                */
             }
         }
 
@@ -212,7 +215,7 @@ namespace IrrlichtNET
         static extern char Event_GetKeyChar(IntPtr ev);
 
         [DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
-        static extern void Event_GetLogString(IntPtr ev, [MarshalAs(UnmanagedType.LPArray)] byte[] cs);
+        static extern string Event_GetLogString(IntPtr ev);
 
         [DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
         static extern IntPtr Event_GetCaller(IntPtr ev);

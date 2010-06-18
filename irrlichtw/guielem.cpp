@@ -79,9 +79,8 @@ void GuiElem_GetRelativePosition(IntPtr elem, M_RECT pos)
     UM_RECT(GetElem(elem)->getRelativePosition(), pos);
 }
 
-IntPtr GuiElem_GetText(IntPtr elem)
+M_STRING GuiElem_GetText(IntPtr elem)
 {
-    setlocale(LC_ALL, "Japanese");
     return UM_STRING(GetElem(elem)->getText());
 }
 

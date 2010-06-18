@@ -3,10 +3,7 @@
 //Shadow Volume Scene Node
 void ShadowVolume_SetMeshToRenderFrom(IntPtr shadow, IntPtr mesh)
 {
-    // TODO: Fix! Commented Out by Teravus
-    //IShadowVolumeSceneNode shadow;
-
-    //((IShadowVolumeSceneNode*)shadow)->setMeshToRenderFrom((IMesh*)mesh);
+    ((IShadowVolumeSceneNode*)shadow)->setShadowMesh((IMesh*)mesh);
 }
 
 //Animated Mesh Scene Node

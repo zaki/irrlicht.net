@@ -203,18 +203,7 @@ namespace IrrlichtNET
         {
             get
             {
-                string value;
-                try
-                {
-                    IntPtr ptr_value = GuiElem_GetText(_raw);
-                    value = IrrStringMarshal.IntPtrToString(ptr_value);
-                }
-                catch (Exception)
-                {
-                    return "Error!";
-                }
-
-                return value;
+                return GuiElem_GetText(_raw);
             }
             set
             {
@@ -307,7 +296,7 @@ namespace IrrlichtNET
         static extern string GuiElem_GetToolTipText(IntPtr elem);
 
         [DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
-        static extern IntPtr GuiElem_GetText(IntPtr elem);
+        static extern string GuiElem_GetText(IntPtr elem);
 
         [DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
         static extern ElementType GuiElem_GetType(IntPtr elem);

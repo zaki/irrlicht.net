@@ -57,12 +57,9 @@ char Event_GetKeyChar(IntPtr event)
     return (char)GetEventFromIntPtr(event)->KeyInput.Char;
 }
 
-void Event_GetLogString(IntPtr ev, char* str)
+M_STRING Event_GetLogString(IntPtr ev)
 {
-    M_STRING sr = UM_STRING(GetEventFromIntPtr(ev)->LogEvent.Text);
-    std::string s(sr);
-    for(int i = 0; i < s.length(); i ++)
-        str[i] = sr[i];
+    return UM_STRING(GetEventFromIntPtr(ev)->LogEvent.Text);
 }
 
 IntPtr Event_GetCaller(IntPtr event)
@@ -82,23 +79,11 @@ int Event_GetUserDataI (IntPtr event, char num)
     (GetEventFromIntPtr(event)->UserEvent.UserData1) ;
 }
 
-float Event_GetUserDataF (IntPtr event)
-{
-    // TODO: FIX!  This was removed in Irrlicht.  There is no UserEvent.UserData3
-    return 0;
-}
-
 void Event_SetUserDataI (IntPtr event, char num, int data)
 {
     num?
         GetEventFromIntPtr(event)->UserEvent.UserData2 = data:
     GetEventFromIntPtr(event)->UserEvent.UserData1 = data;
-}
-
-void Event_SetUserDataF (IntPtr event, float data)
-{
-    // TODO: FIX!  UserData3 was removed from Irrlicht
-    //GetEventFromIntPtr(event)->UserEvent.UserData3 = data;
 }
 
 void Event_Release (IntPtr event)

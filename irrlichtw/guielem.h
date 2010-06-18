@@ -23,7 +23,7 @@ extern "C"
     EXPORT void                 GuiElem_SetVisible(IntPtr elem, bool visible);
     EXPORT bool                 GuiElem_IsEnabled(IntPtr elem);
     EXPORT void                 GuiElem_SetEnabled(IntPtr elem, bool enabled);
-    EXPORT IntPtr               GuiElem_GetText(IntPtr elem);
+    EXPORT M_STRING             GuiElem_GetText(IntPtr elem);
     EXPORT void                 GuiElem_SetText(IntPtr elem, M_STRING text);
     EXPORT M_STRING             GuiElem_GetToolTipText(IntPtr elem);
     EXPORT void                 GuiElem_SetToolTipText( IntPtr elem, M_STRING text );

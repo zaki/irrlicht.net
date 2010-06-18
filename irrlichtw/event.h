@@ -25,13 +25,11 @@ extern "C"
     EXPORT bool Event_GetKeyControl(IntPtr event);
 
     // LOG EVENT
-    EXPORT void Event_GetLogString(IntPtr event, char* str);
+    EXPORT M_STRING Event_GetLogString(IntPtr event);
     
     // USER EVENT
     EXPORT int      Event_GetUserDataI (IntPtr event, unsigned int num);
-    EXPORT float    Event_GetUserDataF (IntPtr event);
     EXPORT void     Event_SetUserDataI (IntPtr event, char num, int data);
-    EXPORT void     Event_SetUserDataF (IntPtr event, float data);
     
     // JOYSTICK EVENT
     // EXPORT int*  Event_GetAxis(IntPtr event);

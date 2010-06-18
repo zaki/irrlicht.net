@@ -52,18 +52,7 @@ namespace IrrlichtNET
         {
             get
             {
-                string value;
-                try
-                {
-                    IntPtr ptr_value = GuiElem_GetText(_raw);
-                    value = IrrStringMarshal.IntPtrToString(ptr_value);
-                }
-                catch (Exception)
-                {
-                    return "Error!";
-                }
-
-                return value;
+                return GuiElem_GetText(_raw);
             }
             set
             {
