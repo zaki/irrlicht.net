@@ -37,11 +37,8 @@ namespace IrrlichtNET
         /// <param name="id">ID (-1 for automatic ID assignation)</param>
         public BillboardSceneNode AddBillboardSceneNode(SceneNode parent, Dimension2Df size, int id)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (BillboardSceneNode)
-                NativeElement.GetObject(SceneManager_AddBillboardSceneNode(_raw, par, size.ToUnmanaged(), id),
+                NativeElement.GetObject(SceneManager_AddBillboardSceneNode(_raw, GetPtr(parent), size.ToUnmanaged(), id),
                                     typeof(BillboardSceneNode));
         }
 
@@ -52,11 +49,8 @@ namespace IrrlichtNET
         /// <param name="parent">The parents (null if no parent)</param>
         public CameraSceneNode AddCameraSceneNode(SceneNode parent)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (CameraSceneNode)
-                NativeElement.GetObject(SceneManager_AddCameraSceneNode(_raw, par),
+                NativeElement.GetObject(SceneManager_AddCameraSceneNode(_raw, GetPtr(parent)),
                                         typeof(CameraSceneNode));
         }
 

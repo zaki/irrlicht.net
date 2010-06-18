@@ -148,10 +148,7 @@ namespace IrrlichtNET
             }
             set
             {
-                if (value != null)
-                    Material_SetTexture(_raw, 0, value.Raw);
-                else
-                    Material_SetTexture(_raw, 0, IntPtr.Zero);
+                Material_SetTexture(_raw, 0, GetPtr(value));
             }
         }
 
@@ -166,10 +163,7 @@ namespace IrrlichtNET
             }
             set
             {
-                if (value != null)
-                    Material_SetTexture(_raw, 1, value.Raw);
-                else
-                    Material_SetTexture(_raw, 1, IntPtr.Zero);
+                Material_SetTexture(_raw, 1, GetPtr(value));
             }
         }
 
@@ -184,10 +178,7 @@ namespace IrrlichtNET
             }
             set
             {
-                if (value != null)
-                    Material_SetTexture(_raw, 2, value.Raw);
-                else
-                    Material_SetTexture(_raw, 2, IntPtr.Zero);
+                Material_SetTexture(_raw, 2, GetPtr(value));
             }
         }
 
@@ -202,10 +193,7 @@ namespace IrrlichtNET
             }
             set
             {
-                if (value != null)
-                    Material_SetTexture(_raw, 3, value.Raw);
-                else
-                    Material_SetTexture(_raw, 3, IntPtr.Zero);
+                    Material_SetTexture(_raw, 3, GetPtr(value));
             }
         }
 
@@ -218,10 +206,7 @@ namespace IrrlichtNET
             }
             set
             {
-                if (value != null)
-                    Material_SetMaterialLayer(_raw, 0, value.Raw);
-                else
-                    Material_SetMaterialLayer(_raw, 0, IntPtr.Zero);
+                Material_SetMaterialLayer(_raw, 0, GetPtr(value));
             }
         }
 
@@ -234,10 +219,7 @@ namespace IrrlichtNET
             }
             set
             {
-                if (value != null)
-                    Material_SetMaterialLayer(_raw, 1, value.Raw);
-                else
-                    Material_SetMaterialLayer(_raw, 1, IntPtr.Zero);
+                Material_SetMaterialLayer(_raw, 1, GetPtr(value));
             }
         }
 
@@ -250,10 +232,7 @@ namespace IrrlichtNET
             }
             set
             {
-                if (value != null)
-                    Material_SetMaterialLayer(_raw, 2, value.Raw);
-                else
-                    Material_SetMaterialLayer(_raw, 2, IntPtr.Zero);
+                Material_SetMaterialLayer(_raw, 2, GetPtr(value));
             }
         }
 
@@ -266,10 +245,7 @@ namespace IrrlichtNET
             }
             set
             {
-                if (value != null)
-                    Material_SetMaterialLayer(_raw, 3, value.Raw);
-                else
-                    Material_SetMaterialLayer(_raw, 3, IntPtr.Zero);
+                Material_SetMaterialLayer(_raw, 3, GetPtr(value));
             }
         }
 

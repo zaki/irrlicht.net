@@ -117,10 +117,7 @@ namespace IrrlichtNET
             }
             set
             {
-                if (value != null)
-                    SceneNode_SetParent(_raw, value.Raw);
-                else
-                    SceneNode_SetParent(_raw, IntPtr.Zero);
+                SceneNode_SetParent(_raw, GetPtr(value));
             }
         }
 
