@@ -11,171 +11,150 @@ namespace IrrlichtNET
         {
         }
 
+        protected IntPtr GetParent(GUIElement parent)
+        {
+            return (parent == null ? IntPtr.Zero : parent.Raw);
+        }
+
         public GUIButton AddButton(Rect rectangle, GUIElement parent, int id, string text)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIButton)NativeElement.GetObject(GuiEnv_AddButton(_raw, rectangle.ToUnmanaged(), par, id, text),
+            return (GUIButton)NativeElement.GetObject(GuiEnv_AddButton(_raw, rectangle.ToUnmanaged(), GetParent(parent), id, text),
                                                       typeof(GUIButton));
         }
 
         public GUIColorSelectDialog AddColorSelectDialog(string title, bool modal, GUIElement parent, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
             return (GUIColorSelectDialog)NativeElement.GetObject(GuiEnv_AddColorSelectDialog(_raw,
                                                                                              title,
                                                                                              modal,
-                                                                                             par,
+                                                                                             GetParent(parent),
                                                                                              id),
                                                                  typeof(GUIColorSelectDialog));
         }
 
         public GUISpinBox AddSpinBox(string text, Rect rectangle, bool border, GUIElement parent, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-
             return (GUISpinBox)NativeElement.GetObject(GuiEnv_AddSpinBox(_raw, text,
                                                                          rectangle.ToUnmanaged(),
                                                                          border,
-                                                                         par, id), typeof(GUISpinBox));
+                                                                         GetParent(parent), id), typeof(GUISpinBox));
         }
 
         public GUICheckBox AddCheckBox(bool ischecked, Rect rectangle, GUIElement parent, int id, string text)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUICheckBox)NativeElement.GetObject(GuiEnv_AddCheckBox(_raw, ischecked, rectangle.ToUnmanaged(), par, id, text),
+            return (GUICheckBox)NativeElement.GetObject(GuiEnv_AddCheckBox(_raw, ischecked, rectangle.ToUnmanaged(), GetParent(parent), id, text),
                                                       typeof(GUICheckBox));
         }
 
         public GUIComboBox AddComboBox(Rect rectangle, GUIElement parent, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIComboBox)NativeElement.GetObject(GuiEnv_AddComboBox(_raw, rectangle.ToUnmanaged(), par, id),
+            return (GUIComboBox)NativeElement.GetObject(GuiEnv_AddComboBox(_raw, rectangle.ToUnmanaged(), GetParent(parent), id),
                                                       typeof(GUIComboBox));
         }
 
         public GUIContextMenu AddContextMenu(Rect rectangle, GUIElement parent, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIContextMenu)NativeElement.GetObject(GuiEnv_AddContextMenu(_raw, rectangle.ToUnmanaged(), par, id),
+            return (GUIContextMenu)NativeElement.GetObject(GuiEnv_AddContextMenu(_raw, rectangle.ToUnmanaged(), GetParent(parent), id),
                                                       typeof(GUIContextMenu));
         }
 
         public GUIEditBox AddEditBox(string text, Rect rectangle, bool border, GUIElement parent, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIEditBox)NativeElement.GetObject(GuiEnv_AddEditBox(_raw, text, rectangle.ToUnmanaged(), border, par, id),
+            return (GUIEditBox)NativeElement.GetObject(GuiEnv_AddEditBox(_raw, text, rectangle.ToUnmanaged(), border, GetParent(parent), id),
                                                       typeof(GUIEditBox));
         }
 
         public GUIFileOpenDialog AddFileOpenDialog(string title, bool modal, GUIElement parent, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIFileOpenDialog)NativeElement.GetObject(GuiEnv_AddFileOpenDialog(_raw, title, modal, par, id),
+            return (GUIFileOpenDialog)NativeElement.GetObject(GuiEnv_AddFileOpenDialog(_raw, title, modal, GetParent(parent), id),
                                                       typeof(GUIFileOpenDialog));
         }
 
         public GUIImage AddImage(Rect rectangle, GUIElement parent, int id, string text)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIImage)NativeElement.GetObject(GuiEnv_AddImage(_raw, rectangle.ToUnmanaged(), par, id, text),
+            return (GUIImage)NativeElement.GetObject(GuiEnv_AddImage(_raw, rectangle.ToUnmanaged(), GetParent(parent), id, text),
                                                       typeof(GUIImage));
         }
 
         public GUIImage AddImage(Texture image, Position2D position, bool useAlphaChannel, GUIElement parent, int id, string text)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIImage)NativeElement.GetObject(GuiEnv_AddImageA(_raw, image.Raw, position.ToUnmanaged(), useAlphaChannel, par, id, text),
+            return (GUIImage)NativeElement.GetObject(GuiEnv_AddImageA(_raw, image.Raw, position.ToUnmanaged(), useAlphaChannel, GetParent(parent), id, text),
                                                       typeof(GUIImage));
         }
 
         public GUIInOutFader AddInOutFader(Rect rectangle, GUIElement parent, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIInOutFader)NativeElement.GetObject(GuiEnv_AddInOutFader(_raw, rectangle.ToUnmanaged(), par, id),
+            return (GUIInOutFader)NativeElement.GetObject(GuiEnv_AddInOutFader(_raw, rectangle.ToUnmanaged(), GetParent(parent), id),
                                                       typeof(GUIInOutFader));
         }
 
         public GUIInOutFader AddInOutFader(GUIElement parent, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIInOutFader)NativeElement.GetObject(GuiEnv_AddInOutFader(_raw, null, par, id),
+            return (GUIInOutFader)NativeElement.GetObject(GuiEnv_AddInOutFader(_raw, null, GetParent(parent), id),
                                                       typeof(GUIInOutFader));
         }
 
         public GUIListBox AddListBox(Rect rect, GUIElement parent, int id, bool drawBackground)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIListBox)NativeElement.GetObject(GuiEnv_AddListBox(_raw, rect.ToUnmanaged(), par, id, drawBackground),
+            return (GUIListBox)NativeElement.GetObject(GuiEnv_AddListBox(_raw, rect.ToUnmanaged(), GetParent(parent), id, drawBackground),
                                                       typeof(GUIListBox));
         }
 
         public GUIContextMenu AddMenu(GUIElement parent, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIContextMenu)NativeElement.GetObject(GuiEnv_AddMenu(_raw, par, id),
-                                                      typeof(GUIContextMenu));
+            return (GUIContextMenu)NativeElement.GetObject(GuiEnv_AddMenu(_raw, GetParent(parent), id), typeof(GUIContextMenu));
         }
 
         public GUIMeshViewer AddMeshViewer(Rect rectangle, GUIElement parent, int id, string text)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIMeshViewer)NativeElement.GetObject(GuiEnv_AddMeshViewer(_raw, rectangle.ToUnmanaged(), par, id, text),
+            return (GUIMeshViewer)NativeElement.GetObject(GuiEnv_AddMeshViewer(_raw, rectangle.ToUnmanaged(), GetParent(parent), id, text),
                                                       typeof(GUIMeshViewer));
         }
 
         public GUIWindow AddMessageBox(string caption, string text, bool modal, MessageBoxFlag flags, GUIElement parent, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIWindow)NativeElement.GetObject(GuiEnv_AddMessageBox(_raw, caption, text, modal, flags, par, id),
+            return (GUIWindow)NativeElement.GetObject(GuiEnv_AddMessageBox(_raw, caption, text, modal, flags, GetParent(parent), id),
                                                       typeof(GUIWindow));
         }
 
         public GUIScrollBar AddScrollBar(bool horizontal, Rect rectangle, GUIElement parent, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIScrollBar)NativeElement.GetObject(GuiEnv_AddScrollBar(_raw, horizontal, rectangle.ToUnmanaged(), par, id),
+            return (GUIScrollBar)NativeElement.GetObject(GuiEnv_AddScrollBar(_raw, horizontal, rectangle.ToUnmanaged(), GetParent(parent), id),
                                                       typeof(GUIScrollBar));
         }
 
         public GUIStaticText AddStaticText(string text, Rect rectangle, bool border, bool wordWrap, GUIElement parent, int id, bool fillBackground)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIStaticText)NativeElement.GetObject(GuiEnv_AddStaticText(_raw, text, rectangle.ToUnmanaged(), border, wordWrap, par, id, fillBackground),
+            return (GUIStaticText)NativeElement.GetObject(GuiEnv_AddStaticText(_raw, text, rectangle.ToUnmanaged(), border, wordWrap, GetParent(parent), id, fillBackground),
                                                       typeof(GUIStaticText));
         }
 
         public GUITab AddTab(Rect rectangle, GUIElement parent, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUITab)NativeElement.GetObject(GuiEnv_AddTab(_raw, rectangle.ToUnmanaged(), par, id),
+            return (GUITab)NativeElement.GetObject(GuiEnv_AddTab(_raw, rectangle.ToUnmanaged(), GetParent(parent), id),
                                                       typeof(GUITab));
         }
 
         public GUITabControl AddTabControl(Rect rectangle, GUIElement parent, bool fillBackground, bool hasBorder, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUITabControl)NativeElement.GetObject(GuiEnv_AddTabControl(_raw, rectangle.ToUnmanaged(), par, fillBackground, hasBorder, id),
+            return (GUITabControl)NativeElement.GetObject(GuiEnv_AddTabControl(_raw, rectangle.ToUnmanaged(), GetParent(parent), fillBackground, hasBorder, id),
                                                       typeof(GUITabControl));
         }
 
         public GUIToolBar AddToolBar(GUIElement parent, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIToolBar)NativeElement.GetObject(GuiEnv_AddToolBar(_raw, par, id),
-                                                      typeof(GUIToolBar));
+            return (GUIToolBar)NativeElement.GetObject(GuiEnv_AddToolBar(_raw, GetParent(parent), id), typeof(GUIToolBar));
         }
 
         public GUIWindow AddWindow(Rect rectangle, bool modal, string text, GUIElement parent, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
-            return (GUIWindow)NativeElement.GetObject(GuiEnv_AddWindow(_raw, rectangle.ToUnmanaged(), modal, text, par, id),
+            return (GUIWindow)NativeElement.GetObject(GuiEnv_AddWindow(_raw, rectangle.ToUnmanaged(), modal, text, GetParent(parent), id),
                                                       typeof(GUIWindow));
         }
 
         public GUISkin CreateSkin(GUISkinTypes skin)
         {
-            return (GUISkin)NativeElement.GetObject(GuiEnv_CreateSkin(_raw, skin),
-                                                      typeof(GUISkin));
+            return (GUISkin)NativeElement.GetObject(GuiEnv_CreateSkin(_raw, skin), typeof(GUISkin));
         }
 
         public void DrawAll()

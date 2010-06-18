@@ -168,13 +168,11 @@ namespace IrrlichtNET
         static extern IntPtr GuiEnv_AddStaticTextW(IntPtr guienv, string text, int[] rectangle, bool border, bool wordWrap, IntPtr parent, int id, bool fillBackground);
         public GUIStaticText AddStaticTextW(string text, Rect rectangle, bool border, bool wordWrap, GUIElement parent, int id, bool fillBackground)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
 #if !LINUX
-            return (GUIStaticText)NativeElement.GetObject(GuiEnv_AddStaticTextW(_raw, text, rectangle.ToUnmanaged(), border, wordWrap, par, id, fillBackground),
+            return (GUIStaticText)NativeElement.GetObject(GuiEnv_AddStaticTextW(_raw, text, rectangle.ToUnmanaged(), border, wordWrap, GetParent(parent), id, fillBackground),
                                                       typeof(GUIStaticText));
 #else
-            return (GUIStaticText)NativeElement.GetObject(GuiEnv_AddStaticText(_raw, text, rectangle.ToUnmanaged(), border, wordWrap, par, id, fillBackground),
-                                                      typeof(GUIStaticText));
+            return (GUIStaticText)NativeElement.GetObject(GuiEnv_AddStaticText(_raw, text, rectangle.ToUnmanaged(), border, wordWrap, GetParent(parent), id, fillBackground), typeof(GUIStaticText));
 #endif
         }
 
@@ -182,12 +180,11 @@ namespace IrrlichtNET
         static extern IntPtr GuiEnv_AddButtonW(IntPtr guienv, int[] rectangle, IntPtr parent, int id, string text);
         public GUIButton AddButtonW(Rect rectangle, GUIElement parent, int id, string text)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
 #if !LINUX
-            return (GUIButton)NativeElement.GetObject(GuiEnv_AddButtonW(_raw, rectangle.ToUnmanaged(), par, id, text),
+            return (GUIButton)NativeElement.GetObject(GuiEnv_AddButtonW(_raw, rectangle.ToUnmanaged(), GetParent(parent), id, text),
                                                       typeof(GUIButton));
 #else
-            return (GUIButton)NativeElement.GetObject(GuiEnv_AddButton(_raw, rectangle.ToUnmanaged(), par, id, text),
+            return (GUIButton)NativeElement.GetObject(GuiEnv_AddButton(_raw, rectangle.ToUnmanaged(), GetParent(parent), id, text),
                                                       typeof(GUIButton));
 #endif
         }
@@ -196,12 +193,11 @@ namespace IrrlichtNET
         static extern IntPtr GuiEnv_AddEditBoxW(IntPtr guienv, string text, int[] rectangle, bool border, IntPtr parent, int id);
         public GUIEditBox AddEditBoxW(string text, Rect rectangle, bool border, GUIElement parent, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
 #if !LINUX
-            return (GUIEditBox)NativeElement.GetObject(GuiEnv_AddEditBoxW(_raw, text, rectangle.ToUnmanaged(), border, par, id),
+            return (GUIEditBox)NativeElement.GetObject(GuiEnv_AddEditBoxW(_raw, text, rectangle.ToUnmanaged(), border, GetParent(parent), id),
                                                       typeof(GUIEditBox));
 #else
-            return (GUIEditBox)NativeElement.GetObject(GuiEnv_AddEditBox(_raw, text, rectangle.ToUnmanaged(), border, par, id),
+            return (GUIEditBox)NativeElement.GetObject(GuiEnv_AddEditBox(_raw, text, rectangle.ToUnmanaged(), border, GetParent(parent), id),
                                                       typeof(GUIEditBox));
 #endif
         }
@@ -210,12 +206,11 @@ namespace IrrlichtNET
         static extern IntPtr GuiEnv_AddWindowW(IntPtr guienv, int[] rectangle, bool modal, string text, IntPtr parent, int id);
         public GUIWindow AddWindowW(Rect rectangle, bool modal, string text, GUIElement parent, int id)
         {
-            IntPtr par = (parent == null ? IntPtr.Zero : parent.Raw);
 #if !LINUX
-            return (GUIWindow)NativeElement.GetObject(GuiEnv_AddWindowW(_raw, rectangle.ToUnmanaged(), modal, text, par, id),
+            return (GUIWindow)NativeElement.GetObject(GuiEnv_AddWindowW(_raw, rectangle.ToUnmanaged(), modal, text, GetParent(parent), id),
                                                       typeof(GUIWindow));
 #else
-            return (GUIWindow)NativeElement.GetObject(GuiEnv_AddWindow(_raw, rectangle.ToUnmanaged(), modal, text, par, id),
+            return (GUIWindow)NativeElement.GetObject(GuiEnv_AddWindow(_raw, rectangle.ToUnmanaged(), modal, text, GetParent(parent), id),
                                                       typeof(GUIWindow));
 #endif
         }
