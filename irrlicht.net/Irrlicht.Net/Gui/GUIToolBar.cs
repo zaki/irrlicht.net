@@ -14,7 +14,7 @@ namespace IrrlichtNET
         public GUIButton AddButton(int id, string text, string tooltip, Texture img, Texture pressedimg, bool isPushButton, bool useAlphaChannel)
         {
             return (GUIButton)NativeElement.GetObject(
-                GUIToolBar_AddButton(_raw, id, text, tooltip, img == null ? IntPtr.Zero : img.Raw, pressedimg == null ? IntPtr.Zero : pressedimg.Raw, isPushButton, useAlphaChannel),
+                GUIToolBar_AddButton(_raw, id, text, tooltip, GetPtr(img), pressedimg == null ? IntPtr.Zero : pressedimg.Raw, isPushButton, useAlphaChannel),
                 typeof(GUIButton));
         }
 

@@ -65,7 +65,10 @@ namespace IrrlichtNET
         //! write in binary format rather than text
         EMWF_WRITE_BINARY = 0x4,
 
+        /*
+        TODO: This option is not supported in upstream Irrlicht
         //! mirror geometry left/right and reverse winding order to preserving front-faces
         EMWF_WRITE_MIRRORED = 0x8
+        */
     }
 }

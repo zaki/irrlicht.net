@@ -482,7 +482,7 @@ namespace IrrlichtNET
 
         public void SetRenderTarget(Texture target, bool clearBackBuffer, bool clearZBuffer, Color color)
         {
-            VideoDriver_SetRenderTarget(_raw, (target == null ? IntPtr.Zero : target.Raw), clearBackBuffer, clearZBuffer, color.ToUnmanaged());
+            VideoDriver_SetRenderTarget(_raw, GetPtr(target), clearBackBuffer, clearZBuffer, color.ToUnmanaged());
         }
 
         public void SetTextureFlag(TextureCreationFlag flag, bool enabled)

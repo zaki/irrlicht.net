@@ -33,17 +33,15 @@ namespace IrrlichtNET
 
         public Line3D GetRayFromScreenCoordinates(Position2D position, CameraSceneNode camera)
         {
-            IntPtr cam = (camera == null ? IntPtr.Zero : camera.Raw);
             float[] outray = new float[6];
-            SceneCollisionManager_GetRayFromScreenCoordinates(_raw, position.ToUnmanaged(), cam, outray);
+            SceneCollisionManager_GetRayFromScreenCoordinates(_raw, position.ToUnmanaged(), GetPtr(camera), outray);
             return Line3D.FromUnmanaged(outray);
         }
 
         public SceneNode GetSceneNodeFromCamera(CameraSceneNode camera, int idBitMask, bool noDebug)
         {
-            IntPtr cam = (camera == null ? IntPtr.Zero : camera.Raw);
             return (SceneNode)
-                NativeElement.GetObject(SceneCollisionManager_GetSceneNodeFromCameraBB(_raw, cam, idBitMask, noDebug),
+                NativeElement.GetObject(SceneCollisionManager_GetSceneNodeFromCameraBB(_raw, GetPtr(camera), idBitMask, noDebug),
                                         typeof(SceneNode));
         }
 
@@ -78,9 +76,8 @@ namespace IrrlichtNET
 
         public Position2D GetScreenCoordinatesFrom3DPosition(Vector3D position, CameraSceneNode camera)
         {
-            IntPtr cam = (camera == null ? IntPtr.Zero : camera.Raw);
             int[] sc = new int[2];
-            SceneCollisionManager_GetScreenCoordinatesFrom3DPosition(_raw, position.ToUnmanaged(), cam, sc);
+            SceneCollisionManager_GetScreenCoordinatesFrom3DPosition(_raw, position.ToUnmanaged(), GetPtr(camera), sc);
             return Position2D.FromUnmanaged(sc);
         }
 

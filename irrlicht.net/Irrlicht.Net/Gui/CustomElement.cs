@@ -163,8 +163,7 @@ namespace IrrlichtNET.Inheritable
 
         public override void RemoveChild(GUIElement child)
         {
-            CGE_PVOID_METHODS(_raw, CGE_VOID_METHOD.REMOVE_CHILD,
-                              child == null ? IntPtr.Zero : child.Raw, 0, 0, null);
+            CGE_PVOID_METHODS(_raw, CGE_VOID_METHOD.REMOVE_CHILD, GetPtr(child), 0, 0, null);
         }
 
         public override bool Enabled

@@ -86,8 +86,7 @@ namespace IrrlichtNET
             }
             set
             {
-                IntPtr r = (value == null ? IntPtr.Zero : value.Raw);
-                GuiSkin_SetFont(_raw, r);
+                GuiSkin_SetFont(_raw, GetPtr(value));
             }
         }
 

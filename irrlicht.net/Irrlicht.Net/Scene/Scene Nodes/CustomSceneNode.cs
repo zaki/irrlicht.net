@@ -239,7 +239,7 @@ namespace IrrlichtNET.Inheritable
             }
             set
             {
-                CSN_PVOID_METHODS(_raw, CSN_VOID_METHOD.SET_PARENT, value == null ? IntPtr.Zero : value.Raw, 0, 0, null);
+                CSN_PVOID_METHODS(_raw, CSN_VOID_METHOD.SET_PARENT, GetPtr(value), 0, 0, null);
             }
         }
 
@@ -333,7 +333,7 @@ namespace IrrlichtNET.Inheritable
             }
             set
             {
-                CSN_PVOID_METHODS(_raw, CSN_VOID_METHOD.SET_TRIANGLE_SELECTOR, value == null ? IntPtr.Zero : value.Raw, 0, 0, null);
+                CSN_PVOID_METHODS(_raw, CSN_VOID_METHOD.SET_TRIANGLE_SELECTOR, GetPtr(value), 0, 0, null);
             }
         }
 

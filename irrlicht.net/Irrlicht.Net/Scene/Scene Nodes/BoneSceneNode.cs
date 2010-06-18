@@ -123,7 +123,7 @@ namespace IrrlichtNET
         /// <summary>
         /// updates the absolute position based on the relative and the parents position
         /// </summary>
-        public void UpdateAbsolutePositionOfAllChildren() // Whew, what are they smoking?
+        public void UpdateAbsolutePositionOfAllChildren()
         {
             BoneSceneNode_UAPOAC(_raw);
         }

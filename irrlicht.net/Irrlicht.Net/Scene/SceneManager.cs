@@ -669,12 +669,7 @@ namespace IrrlichtNET
         public SceneNode GetSceneNodeFromType(SceneNodeType type, SceneNode start)
         {
             return (SceneNode)
-                NativeElement.GetObject(SceneManager_GetSceneNodeFromType(_raw,
-                                                                          start == null ?
-                                                                          IntPtr.Zero :
-                                                                          start.Raw,
-                                                                          (int)type),
-                                        typeof(SceneNode));
+                NativeElement.GetObject(SceneManager_GetSceneNodeFromType(_raw, GetPtr(start), (int)type), typeof(SceneNode));
         }
 
         /// <summary>
