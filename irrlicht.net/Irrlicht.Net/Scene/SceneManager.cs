@@ -70,11 +70,8 @@ namespace IrrlichtNET
         /// <param name="noVerticalMovement">Are vertical movements forbidden ?</param>
         public CameraSceneNode AddCameraSceneNodeFPS(SceneNode parent, float rotateSpeed, float moveSpeed, bool noVerticalMovement)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (CameraSceneNode)
-                NativeElement.GetObject(SceneManager_AddCameraSceneNodeFPS(_raw, par, rotateSpeed, moveSpeed, -1, noVerticalMovement),
+                NativeElement.GetObject(SceneManager_AddCameraSceneNodeFPS(_raw, GetPtr(parent), rotateSpeed, moveSpeed, -1, noVerticalMovement),
                                         typeof(CameraSceneNode));
         }
 
@@ -89,11 +86,8 @@ namespace IrrlichtNET
         /// <param name="map">KeyMap which defines all actions of the camera</param>
         public CameraSceneNode AddCameraSceneNodeFPS(SceneNode parent, float rotateSpeed, float moveSpeed, bool noVerticalMovement, KeyMap map)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (CameraSceneNode)
-                NativeElement.GetObject(SceneManager_AddCameraSceneNodeFPSA(_raw, par, rotateSpeed, moveSpeed, -1, noVerticalMovement, map.Actions, map.Codes, map.Size),
+                NativeElement.GetObject(SceneManager_AddCameraSceneNodeFPSA(_raw, GetPtr(parent), rotateSpeed, moveSpeed, -1, noVerticalMovement, map.Actions, map.Codes, map.Size),
                                         typeof(CameraSceneNode));
         }
 
@@ -108,11 +102,8 @@ namespace IrrlichtNET
         /// <param name="id">ID of the node (-1 for an automatic assignation)</param>
         public CameraSceneNode AddCameraSceneNodeMaya(SceneNode parent, float rotateSpeed, float zoomSpeed, float transSpeed, int id)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (CameraSceneNode)
-                NativeElement.GetObject(SceneManager_AddCameraSceneNodeMaya(_raw, par, rotateSpeed, zoomSpeed, transSpeed, id),
+                NativeElement.GetObject(SceneManager_AddCameraSceneNodeMaya(_raw, GetPtr(parent), rotateSpeed, zoomSpeed, transSpeed, id),
                                         typeof(CameraSceneNode));
         }
 
@@ -124,11 +115,8 @@ namespace IrrlichtNET
         /// <param name="id">ID of the node (-1 for automatic assignation)</param>
         public SceneNode AddDummyTransformationSceneNode(SceneNode parent, int id)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (SceneNode)
-                NativeElement.GetObject(SceneManager_AddDummyTransformationSceneNode(_raw, par, id),
+                NativeElement.GetObject(SceneManager_AddDummyTransformationSceneNode(_raw, GetPtr(parent), id),
                                         typeof(SceneNode));
         }
 
@@ -140,11 +128,8 @@ namespace IrrlichtNET
         /// <param name="id">ID (-1 for automatic assignation)</param>
         public SceneNode AddEmptySceneNode(SceneNode parent, int id)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (SceneNode)
-                NativeElement.GetObject(SceneManager_AddEmptySceneNode(_raw, par, id),
+                NativeElement.GetObject(SceneManager_AddEmptySceneNode(_raw, GetPtr(parent), id),
                                         typeof(SceneNode));
         }
 
@@ -176,11 +161,8 @@ namespace IrrlichtNET
         /// <param name="id">ID (-1 for automatic assignation)</param>
         public LightSceneNode AddLightSceneNode(SceneNode parent, Vector3D position, Colorf color, float radius, int id)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (LightSceneNode)
-                NativeElement.GetObject(SceneManager_AddLightSceneNode(_raw, par, position.ToUnmanaged(), color.ToUnmanaged(), radius, id),
+                NativeElement.GetObject(SceneManager_AddLightSceneNode(_raw, GetPtr(parent), position.ToUnmanaged(), color.ToUnmanaged(), radius, id),
                                         typeof(LightSceneNode));
         }
 
@@ -193,11 +175,8 @@ namespace IrrlichtNET
         /// <param name="id">ID of the node (-1 for automatic assignation)</param>
         public MeshSceneNode AddMeshSceneNode(Mesh mesh, SceneNode parent, int id)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (MeshSceneNode)
-                NativeElement.GetObject(SceneManager_AddMeshSceneNode(_raw, mesh.Raw, par, id),
+                NativeElement.GetObject(SceneManager_AddMeshSceneNode(_raw, mesh.Raw, GetPtr(parent), id),
                                         typeof(MeshSceneNode));
         }
 
@@ -211,11 +190,8 @@ namespace IrrlichtNET
         /// <param name="minimalPolysPerNode">The minimal polys per node (ideal : 128)</param>
         public SceneNode AddOctTreeSceneNode(Mesh mesh, SceneNode parent, int id, int minimalPolysPerNode)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (SceneNode)
-                NativeElement.GetObject(SceneManager_AddOctTreeSceneNode(_raw, mesh.Raw, par, id, minimalPolysPerNode),
+                NativeElement.GetObject(SceneManager_AddOctTreeSceneNode(_raw, mesh.Raw, GetPtr(parent), id, minimalPolysPerNode),
                                         typeof(SceneNode));
         }
 
@@ -229,11 +205,8 @@ namespace IrrlichtNET
         /// <param name="minimalPolysPerNode">Specifies the minimal polygons per node. Idea = 128</param>
         public SceneNode AddOctTreeSceneNode(AnimatedMesh mesh, SceneNode parent, int id, int minimalPolysPerNode)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (SceneNode)
-                NativeElement.GetObject(SceneManager_AddOctTreeSceneNodeA(_raw, mesh.Raw, par, id, minimalPolysPerNode),
+                NativeElement.GetObject(SceneManager_AddOctTreeSceneNodeA(_raw, mesh.Raw, GetPtr(parent), id, minimalPolysPerNode),
                                         typeof(SceneNode));
         }
 
@@ -246,11 +219,8 @@ namespace IrrlichtNET
         /// <param name="id">An int</param>
         public ParticleSystemSceneNode AddParticleSystemSceneNode(bool defaultEmitter, SceneNode parent, int id)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (ParticleSystemSceneNode)
-                NativeElement.GetObject(SceneManager_AddParticleSystemSceneNode(_raw, defaultEmitter, par, id),
+                NativeElement.GetObject(SceneManager_AddParticleSystemSceneNode(_raw, defaultEmitter, GetPtr(parent), id),
                                         typeof(ParticleSystemSceneNode));
         }
 
@@ -263,9 +233,6 @@ namespace IrrlichtNET
         /// <param name="id">ID of the node, -1 for automatic assign.</param>
         public SceneNode AddSkyBoxSceneNode(SceneNode parent, Texture[] textureList, int id)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             IntPtr top = textureList[0].Raw;
             IntPtr bottom = textureList[1].Raw;
             IntPtr right = textureList[2].Raw;
@@ -273,7 +240,7 @@ namespace IrrlichtNET
             IntPtr front = textureList[4].Raw;
             IntPtr back = textureList[5].Raw;
             return (SceneNode)
-                NativeElement.GetObject(SceneManager_AddSkyBoxSceneNode(_raw, top, bottom, left, right, front, back, par, id),
+                NativeElement.GetObject(SceneManager_AddSkyBoxSceneNode(_raw, top, bottom, left, right, front, back, GetPtr(parent), id),
                                         typeof(SceneNode));
         }
 
@@ -310,11 +277,8 @@ namespace IrrlichtNET
         /// <param name="smoothFactor">Smoothing factor</param>
         public TerrainSceneNode AddTerrainSceneNode(string heightMap, SceneNode parent, int id, Vector3D position, Vector3D rotation, Vector3D scale, Color vertexColor, int maxLOD, TerrainPatchSize patchSize, int smoothFactor)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (TerrainSceneNode)
-                NativeElement.GetObject(SceneManager_AddTerrainSceneNode(_raw, heightMap, par, id, position.ToUnmanaged(), rotation.ToUnmanaged(), scale.ToUnmanaged(), vertexColor.ToUnmanaged(), maxLOD, patchSize, smoothFactor),
+                NativeElement.GetObject(SceneManager_AddTerrainSceneNode(_raw, heightMap, GetPtr(parent), id, position.ToUnmanaged(), rotation.ToUnmanaged(), scale.ToUnmanaged(), vertexColor.ToUnmanaged(), maxLOD, patchSize, smoothFactor),
                                         typeof(TerrainSceneNode));
         }
 
@@ -327,11 +291,8 @@ namespace IrrlichtNET
         /// <param name="id">ID of the node (-1 for automatic assign.)</param>
         public SceneNode AddCubeSceneNode(float size, SceneNode parent, int id)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (SceneNode)
-                NativeElement.GetObject(SceneManager_AddCubeSceneNode(_raw, size, par, id),
+                NativeElement.GetObject(SceneManager_AddCubeSceneNode(_raw, size, GetPtr(parent), id),
                                         typeof(SceneNode));
         }
 
@@ -349,11 +310,8 @@ namespace IrrlichtNET
         /// <returns>The scene node</returns>
         public SceneNode AddSkyDomeSceneNode(Texture texture, uint horiRes, uint vertRes, double texturePercentage, double spherePercentage, double radius, SceneNode parent)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (SceneNode)
-                NativeElement.GetObject(SceneManager_AddSkyDomeSceneNode(_raw, texture.Raw, horiRes, vertRes, texturePercentage, spherePercentage, radius, par),
+                NativeElement.GetObject(SceneManager_AddSkyDomeSceneNode(_raw, texture.Raw, horiRes, vertRes, texturePercentage, spherePercentage, radius, GetPtr(parent)),
                                         typeof(SceneNode));
         }
 
@@ -367,11 +325,8 @@ namespace IrrlichtNET
         /// <returns>Scene node of the sphere</returns>
         public SceneNode AddSphereSceneNode(float radius, int polycount, SceneNode parent)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (SceneNode)
-                NativeElement.GetObject(SceneManager_AddSphereSceneNode(_raw, radius, polycount, par),
+                NativeElement.GetObject(SceneManager_AddSphereSceneNode(_raw, radius, polycount, GetPtr(parent)),
                                         typeof(SceneNode));
         }
 
@@ -386,11 +341,8 @@ namespace IrrlichtNET
         /// <param name="parent">Its parent</param>
         public TextSceneNode AddTextSceneNode(GUIFont font, string text, Color color, SceneNode parent)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (TextSceneNode)
-                NativeElement.GetObject(SceneManager_AddTextSceneNode(_raw, font.Raw, text, color.ToUnmanaged(), par),
+                NativeElement.GetObject(SceneManager_AddTextSceneNode(_raw, font.Raw, text, color.ToUnmanaged(), GetPtr(parent)),
                                         typeof(TextSceneNode));
         }
 
@@ -409,11 +361,8 @@ namespace IrrlichtNET
         /// <param name="shade_down">Color of the bottom shade</param>
         public TextSceneNode AddBillboardTextSceneNode(GUIFont font, string text, SceneNode parent, Dimension2Df size, Vector3D position, int id, Color shade_top, Color shade_down)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (TextSceneNode)
-                NativeElement.GetObject(SceneManager_AddTextSceneNode2(_raw, font.Raw, text, par, size.ToUnmanaged(), position.ToUnmanaged(),
+                NativeElement.GetObject(SceneManager_AddTextSceneNode2(_raw, font.Raw, text, GetPtr(parent), size.ToUnmanaged(), position.ToUnmanaged(),
                                                                 id, shade_top.ToUnmanaged(), shade_down.ToUnmanaged()),
                                         typeof(TextSceneNode));
         }
@@ -478,11 +427,8 @@ namespace IrrlichtNET
         /// <param name="id">ID (-1 for automatic assign.)</param>
         public SceneNode AddWaterSurfaceSceneNode(Mesh hillMesh, float waveH, float waveS, float waveL, SceneNode parent, int id)
         {
-            IntPtr par = IntPtr.Zero;
-            if (parent != null)
-                par = parent.Raw;
             return (SceneNode)
-                NativeElement.GetObject(SceneManager_AddWaterSurfaceSceneNode(_raw, hillMesh.Raw, waveH, waveS, waveL, par, id),
+                NativeElement.GetObject(SceneManager_AddWaterSurfaceSceneNode(_raw, hillMesh.Raw, waveH, waveS, waveL, GetPtr(parent), id),
                                         typeof(SceneNode));
         }
 

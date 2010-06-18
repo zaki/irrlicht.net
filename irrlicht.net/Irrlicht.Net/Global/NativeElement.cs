@@ -9,6 +9,11 @@ namespace IrrlichtNET
     {
         public static Dictionary<IntPtr, NativeElement> Elements = new Dictionary<IntPtr, NativeElement>();
 
+        public static IntPtr GetPtr(object obj)
+        {
+            return (obj == null ? IntPtr.Zero : ((NativeElement)obj).Raw);
+        }
+
         public static object GetObject(IntPtr raw, Type t)
         {
             if (raw == IntPtr.Zero)

@@ -18,7 +18,7 @@ namespace IrrlichtNET
                 typeof(GUIButton));
         }
 
-        #region Native Invokes (you must be tired now... Actually I am... This must be the... hundreth time I write "region Native Invokes")
+        #region Native Invokes
         [DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
         static extern IntPtr GUIToolBar_AddButton(IntPtr toolbar, int id, string text, string tooltip, IntPtr img, IntPtr pressedimg, bool isPushButton, bool useAlphaChannel);
         #endregion

@@ -35,7 +35,7 @@ namespace IrrlichtNET
             }
         }
 
-        #region Native Invokes (this is the last time I write it for today... I must go to bed now it is late !)
+        #region Native Invokes
         [DllImport(Native.Dll), SuppressUnmanagedCodeSecurity]
         static extern IntPtr GUIWindow_GetCloseButton(IntPtr window);
 
