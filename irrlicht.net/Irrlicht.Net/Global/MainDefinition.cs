@@ -118,7 +118,7 @@ namespace IrrlichtNET
         Terrain = ('t' | 'e' << 8 | 'r' << 16 | 'r' << 24),
         SkyBox = ('s' | 'k' << 8 | 'y' << 16 | '_' << 24),
         ShadowVolume = ('s' | 'h' << 8 | 'd' << 16 | 'w' << 24),
-        OctTree = ('o' | 'c' << 8 | 't' << 16 | 't' << 24),
+        OctTree = ('o' | 'c' << 8 | 't' << 16 | 'r' << 24),
         Mesh = ('m' | 'e' << 8 | 's' << 16 | 'h' << 24),
         Light = ('l' | 'g' << 8 | 'h' << 16 | 't' << 24),
         Empty = ('e' | 'm' << 8 | 't' << 16 | 'y' << 24),

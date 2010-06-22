@@ -27,7 +27,7 @@ s32 Texture_GetPitch(IntPtr texture)
 
 const M_STRING Texture_GetName(IntPtr texture)
 {
-    return ((ITexture*)texture)->getName().c_str();
+    return ((ITexture*)texture)->getName().getPath().c_str();
 }
 
 void Texture_RegenerateMipMapLevels(IntPtr texture)

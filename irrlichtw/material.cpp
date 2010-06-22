@@ -173,7 +173,8 @@ delete GetMatFromIntPtr(material);
 
 bool MaterialLayer_GetAnisotropicFilter(IntPtr material)
 {
-    _FIX_BOOL_MARSHAL_BUG(GetMatLyrFromIntPtr(material)->AnisotropicFilter);
+    // Values 0 and 1 mean disabled. Values 2-16 gives anisotropy degree
+    _FIX_BOOL_MARSHAL_BUG(GetMatLyrFromIntPtr(material)->AnisotropicFilter < 2);
 }
 void MaterialLayer_SetAnisotropicFilter(IntPtr material, bool val)
 {

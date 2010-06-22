@@ -69,12 +69,12 @@ IntPtr SceneManager_AddMeshSceneNode(IntPtr scenemanager, IntPtr mesh, IntPtr pa
 
 IntPtr SceneManager_AddOctTreeSceneNode(IntPtr scenemanager, IntPtr mesh, IntPtr parent, int id, int minimalPolysPerNode)
 {
-    return GetSceneFromIntPtr(scenemanager)->addOctTreeSceneNode((IMesh *)mesh, (ISceneNode*) parent, id, minimalPolysPerNode);
+    return GetSceneFromIntPtr(scenemanager)->addOctreeSceneNode((IMesh *)mesh, (ISceneNode*) parent, id, minimalPolysPerNode);
 }
 
 IntPtr SceneManager_AddOctTreeSceneNodeA(IntPtr scenemanager, IntPtr animatedmesh, IntPtr parent, int id, int minimalPolysPerNode)
 {
-    return GetSceneFromIntPtr(scenemanager)->addOctTreeSceneNode((IAnimatedMesh*)animatedmesh, (ISceneNode*)parent, id, minimalPolysPerNode);
+    return GetSceneFromIntPtr(scenemanager)->addOctreeSceneNode((IAnimatedMesh*)animatedmesh, (ISceneNode*)parent, id, minimalPolysPerNode);
 }
 
 IntPtr SceneManager_AddParticleSystemSceneNode(IntPtr scenemanager, bool defaultEmitter, IntPtr parent, int id)
@@ -188,7 +188,7 @@ IntPtr SceneManager_CreateMetaTriangleSelector(IntPtr scenemanager)
 
 IntPtr SceneManager_CreateOctTreeTriangleSelector(IntPtr scenemanager, IntPtr mesh, IntPtr node, int minimalPolysPerNode)
 {
-    return GetSceneFromIntPtr(scenemanager)->createOctTreeTriangleSelector((IMesh*)mesh, (ISceneNode*)node, minimalPolysPerNode);
+    return GetSceneFromIntPtr(scenemanager)->createOctreeTriangleSelector((IMesh*)mesh, (ISceneNode*)node, minimalPolysPerNode);
 }
 
 IntPtr SceneManager_CreateRotationAnimator(IntPtr scenemanager, M_VECT3DF rotation)

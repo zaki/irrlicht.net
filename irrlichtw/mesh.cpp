@@ -266,7 +266,7 @@ void MeshCache_ClearUnusedMeshes (IntPtr mc)
 
 IntPtr MeshCache_GetMeshByFilename (IntPtr mc, M_STRING filename)
 {
-    return GetMeshCacheFromIntPtr(mc)->getMeshByFilename(UM_STRING(filename));
+    return GetMeshCacheFromIntPtr(mc)->getMeshByName(UM_STRING(filename));
 }
 
 IntPtr MeshCache_GetMeshByIndex (IntPtr mc, irr::u32 index)
@@ -281,17 +281,17 @@ irr::u32 MeshCache_GetMeshCount (IntPtr mc)
 
 M_STRING MeshCache_GetMeshFilename (IntPtr mc, IntPtr mesh)
 {
-    return UM_STRING(GetMeshCacheFromIntPtr(mc)->getMeshFilename(static_cast<irr::scene::IMesh*>(mesh)).c_str());
+    return UM_STRING(GetMeshCacheFromIntPtr(mc)->getMeshName(static_cast<irr::scene::IMesh*>(mesh)).getPath().c_str());
 }
 
 M_STRING MeshCache_GetMeshFilenameA (IntPtr mc, IntPtr mesh)
 {
-    return UM_STRING(GetMeshCacheFromIntPtr(mc)->getMeshFilename(static_cast<irr::scene::IAnimatedMesh*>(mesh)).c_str());
+    return UM_STRING(GetMeshCacheFromIntPtr(mc)->getMeshName(static_cast<irr::scene::IAnimatedMesh*>(mesh)).getPath().c_str());
 }
 
 M_STRING MeshCache_GetMeshFilenameN (IntPtr mc, irr::u32 index)
 {
-    return UM_STRING(GetMeshCacheFromIntPtr(mc)->getMeshFilename(index).c_str());
+    return UM_STRING(GetMeshCacheFromIntPtr(mc)->getMeshName(index).getPath().c_str());
 }
 
 irr::s32 MeshCache_GetMeshIndex (IntPtr mc, IntPtr mesh)
@@ -321,15 +321,15 @@ void MeshCache_RemoveMeshA (IntPtr mc, IntPtr mesh)
 
 bool MeshCache_SetMeshFilename (IntPtr mc, IntPtr mesh, M_STRING filename)
 {
-    _FIX_BOOL_MARSHAL_BUG(GetMeshCacheFromIntPtr(mc)->setMeshFilename(static_cast<irr::scene::IMesh*>(mesh), filename));
+    _FIX_BOOL_MARSHAL_BUG(GetMeshCacheFromIntPtr(mc)->renameMesh(static_cast<irr::scene::IMesh*>(mesh), filename));
 }
 
 bool MeshCache_SetMeshFilenameA (IntPtr mc, IntPtr mesh, M_STRING filename)
 {
-    _FIX_BOOL_MARSHAL_BUG(GetMeshCacheFromIntPtr(mc)->setMeshFilename(static_cast<irr::scene::IAnimatedMesh*>(mesh), filename));
+    _FIX_BOOL_MARSHAL_BUG(GetMeshCacheFromIntPtr(mc)->renameMesh(static_cast<irr::scene::IAnimatedMesh*>(mesh), filename));
 }
 
 bool MeshCache_SetMeshFilenameN (IntPtr mc, irr::u32 index, M_STRING filename)
 {
-    _FIX_BOOL_MARSHAL_BUG(GetMeshCacheFromIntPtr(mc)->setMeshFilename(index, filename));
+    _FIX_BOOL_MARSHAL_BUG(GetMeshCacheFromIntPtr(mc)->renameMesh(index, filename));
 }

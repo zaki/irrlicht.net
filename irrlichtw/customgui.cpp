@@ -35,12 +35,12 @@ public:
             VOID_S(MOVE, IGUIElement::move(MU_POS2DS(arg4)))
             VOID_S(REMOVE, IGUIElement::remove())
             VOID_S(REMOVE_CHILD, IGUIElement::removeChild((IGUIElement*)arg1))
-            VOID_S(SET_ENABLED, IGUIElement::setEnabled(arg2));
+            VOID_S(SET_ENABLED, IGUIElement::setEnabled(arg2!=0));
             VOID_S(SET_ID, IGUIElement::setID(arg2))
             VOID_S(SET_MAX_SIZE, IGUIElement::setMaxSize(MU_DIM2DU(arg4)))
             VOID_S(SET_MIN_SIZE, IGUIElement::setMinSize(MU_DIM2DU(arg4)))
-            VOID_S(SET_NOT_CLIPPED, IGUIElement::setNotClipped(arg2))
-            VOID_S(SET_VISIBLE, IGUIElement::setVisible(arg2))
+            VOID_S(SET_NOT_CLIPPED, IGUIElement::setNotClipped(arg2!=0))
+            VOID_S(SET_VISIBLE, IGUIElement::setVisible(arg2!=0))
             VOID_S(UPDATE_ABSOLUTE_POSITION, IGUIElement::updateAbsolutePosition())
         }
     }
@@ -119,7 +119,8 @@ public:
 
     virtual bool isEnabled () const
     {
-        return c_int (IS_ENABLED, NULL, 0, 0, NULL);
+        int r = c_int (IS_ENABLED, NULL, 0, 0, NULL);
+        return (r != 0);
     }
 
     virtual void setID(s32 id)
@@ -153,12 +154,14 @@ public:
 
     virtual bool OnEvent (const SEvent &event)
     {
-        return c_int(ON_EVENT, (void *)&event, 0, 0, NULL);
+        int r = c_int(ON_EVENT, (void *)&event, 0, 0, NULL);
+        return (r != 0);
     }
 
     virtual bool isNotClipped () const
     {
-        return c_int(GET_NOCLIP, NULL, 0, 0, NULL);
+        int r = c_int(GET_NOCLIP, NULL, 0, 0, NULL);
+        return (r != 0);
     }
 
     virtual EGUI_ELEMENT_TYPE getType () const
@@ -178,7 +181,8 @@ public:
 
     virtual bool isVisible () const
     {
-        return c_int (GET_VISIBLE, NULL, 0, 0, NULL);
+        int r = c_int (GET_VISIBLE, NULL, 0, 0, NULL);
+        return (r != 0);
     }
 
     virtual IGUIElement *getParent () const

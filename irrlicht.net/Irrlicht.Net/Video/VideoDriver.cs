@@ -956,6 +956,11 @@ namespace IrrlichtNET
         VertexBufferObject,
         AlphaToCoverage,
         ColorMask,
+        MultipleRenderTargets,
+        MultipleRenderTargetBlend,
+        MultipleRenderTargetMask,
+        MultipleRenderTargetBlendFunc,
+        GeometryShaders,
         Count
     }
 
